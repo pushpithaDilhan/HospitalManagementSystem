@@ -4,13 +4,14 @@ package hms;
 import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JRadioButton;
 
-public class DoctorHandlerGUI extends javax.swing.JPanel {
+public class ChannelingHandlerGUI extends javax.swing.JPanel {
 
     private int day = 0;
     private int cate = 0;
     
-    public DoctorHandlerGUI() {
+    public ChannelingHandlerGUI() {
         initComponents();
         ConnectionHandler.updateConnection(wifiButton);
     }
@@ -377,45 +378,33 @@ public class DoctorHandlerGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_cateComboActionPerformed
 
     private void tuesdayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tuesdayButtonActionPerformed
-        if(evt.getSource()== tuesdayButton){
-            day = 2;
+        if(evt.getSource()== tuesdayButton ){
+            setValue(tuesdayButton , 2);
         }
     }//GEN-LAST:event_tuesdayButtonActionPerformed
 
     private void mondayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mondayButtonActionPerformed
-        if(evt.getSource()== mondayButton){
-            day = 1;
-        }
+        setValue(mondayButton,1);System.out.println(day);
     }//GEN-LAST:event_mondayButtonActionPerformed
 
     private void SundayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SundayButtonActionPerformed
-        if(evt.getSource()== SundayButton){
-            day = 0;
-        }
+        setValue(SundayButton,0);System.out.println(day);
     }//GEN-LAST:event_SundayButtonActionPerformed
 
     private void wednesdayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wednesdayButtonActionPerformed
-        if(evt.getSource()== wednesdayButton){
-            day = 3;
-        }
+        setValue(wednesdayButton,3);System.out.println(day);
     }//GEN-LAST:event_wednesdayButtonActionPerformed
 
     private void thursdayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thursdayButtonActionPerformed
-        if(evt.getSource()== thursdayButton){
-            day = 4;
-        }
+        setValue(thursdayButton,4);System.out.println(day);
     }//GEN-LAST:event_thursdayButtonActionPerformed
 
     private void fridayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fridayButtonActionPerformed
-        if(evt.getSource()== fridayButton){
-            day = 5;
-        }
+        setValue(fridayButton,5);System.out.println(day);
     }//GEN-LAST:event_fridayButtonActionPerformed
 
     private void saturdayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saturdayButtonActionPerformed
-        if(evt.getSource()== saturdayButton){
-            day = 6;
-        }
+        setValue(saturdayButton,6);System.out.println(day);
     }//GEN-LAST:event_saturdayButtonActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
@@ -439,9 +428,13 @@ public class DoctorHandlerGUI extends javax.swing.JPanel {
             docList.removeAll();
             ConnectionHandler.updateConnection(wifiButton);
             try {
-                ResultSet result = new DoctorHandler().getDoctorsList(day, cate);
+                ResultSet result = new ChannelingHandler().getDoctorsList(day, cate);
+                DoctorAvailability obj = new DoctorAvailability();
                 while(result.next()){
-                    docList.add(result.getString(1));
+                     docList.add(result.getString(1));
+                    /*if(obj.isAvailable(result.getString(2), day)){
+                        docList.add(result.getString(1));
+                    }*/
                 }
             }
             catch(SQLException | NullPointerException ex) {}
@@ -455,7 +448,25 @@ public class DoctorHandlerGUI extends javax.swing.JPanel {
     private void docNameTextMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_docNameTextMouseMoved
         docNameText.setBackground(Color.WHITE);
     }//GEN-LAST:event_docNameTextMouseMoved
-
+    
+    private void clear(JRadioButton btn){
+        JRadioButton[] list = {SundayButton,mondayButton,tuesdayButton,wednesdayButton,thursdayButton,fridayButton,saturdayButton};
+        for(JRadioButton Btn:list){
+            if(Btn.equals(btn)){
+                Btn.setSelected(true);
+            }else{
+                Btn.setSelected(false);
+            }
+        }repaint();
+    }
+    
+    private void setValue(JRadioButton btn ,int index){
+        if (btn.isSelected()) {
+            day = index;
+        } else {
+            day = -1;
+        }clear(btn);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton SundayButton;

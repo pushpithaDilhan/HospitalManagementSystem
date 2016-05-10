@@ -9,7 +9,7 @@ public class PatientRegistrationGUI extends javax.swing.JPanel {
     
     public PatientRegistrationGUI() {
         initComponents();
-        new ConnectionHandler().updateConnection(wifiButton);
+        ConnectionHandler.updateConnection(wifiButton);
     }
 
    
@@ -477,7 +477,7 @@ public class PatientRegistrationGUI extends javax.swing.JPanel {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         if(evt.getSource()== backBtn){
-            HospitalManagementSystem.update(this ,new ChannelingHandler());
+            HospitalManagementSystem.update(this ,new ReceptionInterface());
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
@@ -511,7 +511,8 @@ public class PatientRegistrationGUI extends javax.swing.JPanel {
         boolean isok = true;
         if (evt.getSource() == registertBtn) {
             
-            new ConnectionHandler().updateConnection(wifiButton);
+            ConnectionHandler
+                    .updateConnection(wifiButton);
             
             if (fnameText.getText().equals("")) {
                 fnameText.setBackground(Color.LIGHT_GRAY);

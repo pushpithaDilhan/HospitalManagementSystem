@@ -257,7 +257,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="chargersBtn" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="serCharBtn" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="pastReBtn" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -270,7 +270,7 @@
                               <Component id="availabilityBtn" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="channelBtn" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="serCharBtn" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="pastReBtn" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="chargersBtn" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                               <Component id="registerBtn" alignment="0" pref="0" max="32767" attributes="0"/>
@@ -281,7 +281,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="serCharBtn">
+                <Component class="javax.swing.JButton" name="pastReBtn">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="14" style="0"/>
@@ -294,7 +294,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="serCharBtnActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pastReBtnActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="chargersBtn">

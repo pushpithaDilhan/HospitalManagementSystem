@@ -25,11 +25,7 @@ public class PatientRegistration {
                          Date regday){
          
         try {
-            ConnectionHandler chObj = new ConnectionHandler();
-            if (chObj.isDisconnected()) {
-                chObj.createDBCon();
-            }
-            Statement stat = chObj.getDBCon().createStatement();
+            Statement stat = ConnectionHandler.conToDB().createStatement();
 
             stat.executeUpdate("INSERT INTO patient(name,birthday,address,email,mobile,city,nic,pic,"
                                 +"gender,marital_state,date_of_regi,other) "
