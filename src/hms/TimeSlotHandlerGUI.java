@@ -276,7 +276,7 @@ public class TimeSlotHandlerGUI extends javax.swing.JPanel {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         if(evt.getSource()== backBtn){
-            HospitalManagementSystem.update(this ,new DoctorHandlerGUI());
+            HospitalManagementSystem.update(this ,new ChannelingHandlerGUI());
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
