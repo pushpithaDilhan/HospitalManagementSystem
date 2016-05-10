@@ -10,7 +10,7 @@ public class LoginPageGUI extends javax.swing.JPanel {
     
     public LoginPageGUI() {
         initComponents();
-        new ConnectionHandler().updateConnection(wifiButton);
+        ConnectionHandler.updateConnection(wifiButton);
     }
 
     /**
@@ -274,14 +274,14 @@ public class LoginPageGUI extends javax.swing.JPanel {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         if (evt.getSource() == login) {
-            new ConnectionHandler().updateConnection(wifiButton);
+            ConnectionHandler.updateConnection(wifiButton);
             String employee = new LoginPage().validate(username.getText().trim(), String.valueOf(password.getPassword()).trim());
             if(employee == null){
                 JOptionPane.showMessageDialog(null, "Invalid Username or Password");
                 username.setText("");
                 password.setText("");
             }else if(employee.equals("reception")){
-                HospitalManagementSystem.update(this ,new ChannelingHandler());
+                HospitalManagementSystem.update(this ,new ReceptionInterface());
             }
         }
     }//GEN-LAST:event_loginActionPerformed
