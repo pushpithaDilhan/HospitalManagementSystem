@@ -12,7 +12,7 @@ public class DoctorHandlerGUI extends javax.swing.JPanel {
     
     public DoctorHandlerGUI() {
         initComponents();
-        new ConnectionHandler().updateConnection(wifiButton);
+        ConnectionHandler.updateConnection(wifiButton);
     }
 
     @SuppressWarnings("unchecked")
@@ -420,7 +420,7 @@ public class DoctorHandlerGUI extends javax.swing.JPanel {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         if(evt.getSource()== backBtn){
-            HospitalManagementSystem.update(this ,new ChannelingHandler());
+            HospitalManagementSystem.update(this ,new ReceptionInterface());
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
@@ -437,7 +437,7 @@ public class DoctorHandlerGUI extends javax.swing.JPanel {
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         if(evt.getSource()== searchBtn){
             docList.removeAll();
-            new ConnectionHandler().updateConnection(wifiButton);
+            ConnectionHandler.updateConnection(wifiButton);
             try {
                 ResultSet result = new DoctorHandler().getDoctorsList(day, cate);
                 while(result.next()){
