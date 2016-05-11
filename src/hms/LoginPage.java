@@ -12,6 +12,7 @@ public class LoginPage {
     
     public String validate(String userName, String password){
         String employee = null;
+        String uname = "";
         try {
             PreparedStatement state = ConnectionHandler.conToDB().prepareStatement("SELECT * FROM login");
             ResultSet result = state.executeQuery();

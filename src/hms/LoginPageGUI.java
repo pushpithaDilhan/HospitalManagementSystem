@@ -1,5 +1,8 @@
 package hms;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -7,6 +10,8 @@ import javax.swing.JOptionPane;
  * @author HP
  */
 public class LoginPageGUI extends javax.swing.JPanel {
+    
+    
     
     public LoginPageGUI() {
         initComponents();
@@ -276,13 +281,22 @@ public class LoginPageGUI extends javax.swing.JPanel {
         if (evt.getSource() == login) {
             ConnectionHandler.updateConnection(wifiButton);
             String employee = new LoginPage().validate(username.getText().trim(), String.valueOf(password.getPassword()).trim());
+            
             if(employee == null){
                 JOptionPane.showMessageDialog(null, "Invalid Username or Password");
                 username.setText("");
                 password.setText("");
             }else if(employee.equals("reception")){
                 HospitalManagementSystem.update(this ,new ReceptionInterface());
+                //this.setVisible(false);
+            }else if(employee.equals("doctor")){
+                try {
+                    HospitalManagementSystem.update(this ,new DoctorGUI());
+                } catch (SQLException ex) {
+                    Logger.getLogger(LoginPageGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
+            
         }
     }//GEN-LAST:event_loginActionPerformed
 

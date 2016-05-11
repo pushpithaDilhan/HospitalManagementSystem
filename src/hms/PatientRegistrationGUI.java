@@ -565,6 +565,7 @@ public class PatientRegistrationGUI extends javax.swing.JPanel {
                         regDateChooser.getDate()
                 );
             }
+            System.out.println(bdayDateChooser.getDate());
                
             
         }
