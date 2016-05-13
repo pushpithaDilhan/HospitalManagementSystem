@@ -31,7 +31,6 @@ public class DoctorAvailabilityGUI extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
         wifiButton = new javax.swing.JButton();
         searchtBtn = new javax.swing.JButton();
 
@@ -120,13 +119,19 @@ public class DoctorAvailabilityGUI extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextField1.setText("jTextField1");
-
         wifiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/Wifi-Error.png"))); // NOI18N
         wifiButton.setBorder(null);
 
-        searchtBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/searchbutton.png"))); // NOI18N
+        searchtBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/search1.png"))); // NOI18N
         searchtBtn.setBorder(null);
+        searchtBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                searchtBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                searchtBtnMouseExited(evt);
+            }
+        });
         searchtBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchtBtnActionPerformed(evt);
@@ -142,9 +147,6 @@ public class DoctorAvailabilityGUI extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(517, 517, 517)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -155,7 +157,7 @@ public class DoctorAvailabilityGUI extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(searchtBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)))
+                        .addGap(45, 45, 45)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(73, Short.MAX_VALUE))
         );
@@ -167,12 +169,10 @@ public class DoctorAvailabilityGUI extends javax.swing.JPanel {
                     .addComponent(backBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(wifiButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(searchtBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                .addGap(44, 44, 44))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -196,10 +196,21 @@ public class DoctorAvailabilityGUI extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void searchtBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchtBtnMouseEntered
+        if(evt.getSource()== searchtBtn){
+            searchtBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/search2.png")));
+        }
+    }//GEN-LAST:event_searchtBtnMouseEntered
+
+    private void searchtBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchtBtnMouseExited
+        if(evt.getSource()== searchtBtn){
+            searchtBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/search1.png")));
+        }
+    }//GEN-LAST:event_searchtBtnMouseExited
+
     private void searchtBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchtBtnActionPerformed
         if (evt.getSource() == searchtBtn) {
             ConnectionHandler.updateConnection(wifiButton);
-
 
         }
     }//GEN-LAST:event_searchtBtnActionPerformed
@@ -214,7 +225,6 @@ public class DoctorAvailabilityGUI extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton searchtBtn;
     private javax.swing.JButton wifiButton;
     // End of variables declaration//GEN-END:variables

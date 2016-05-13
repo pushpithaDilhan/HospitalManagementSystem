@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
  */
 public class LoginPageGUI extends javax.swing.JPanel {
     
+    private static String logger;
+    
     public LoginPageGUI() {
         initComponents();
         ConnectionHandler.updateConnection(wifiButton);
@@ -281,7 +283,14 @@ public class LoginPageGUI extends javax.swing.JPanel {
                 username.setText("");
                 password.setText("");
             }else if(employee.equals("reception")){
+                logger = "reception";
                 HospitalManagementSystem.update(this ,new ReceptionInterface());
+            }else if(employee.equals("admin")){
+                logger = "admin";
+                HospitalManagementSystem.update(this ,new AdminInterface());
+            }else if(employee.equals("HR")){
+                logger = "HR";
+                HospitalManagementSystem.update(this ,new HRStaffInterface());
             }
         }
     }//GEN-LAST:event_loginActionPerformed
@@ -291,7 +300,10 @@ public class LoginPageGUI extends javax.swing.JPanel {
             System.exit(0);
         }
     }//GEN-LAST:event_logincancelActionPerformed
-
+    
+    public String getLogger(){
+        return logger;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel hospitalmage;

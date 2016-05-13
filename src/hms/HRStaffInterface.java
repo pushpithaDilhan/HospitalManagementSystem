@@ -5,23 +5,18 @@
  */
 package hms;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author HP
  */
-public class ReceptionInterface extends javax.swing.JPanel {
+public class HRStaffInterface extends javax.swing.JPanel {
 
     /**
-     * Creates new form ChannlingHandler
+     * Creates new form HRStaffInterface
      */
-    public ReceptionInterface() {
+    public HRStaffInterface() {
         initComponents();
         ConnectionHandler.updateConnection(wifiButton);
-        logOff.setVisible(false);
-        cancel.setVisible(false);
-        logOffText.setVisible(false);
     }
 
     /**
@@ -44,18 +39,16 @@ public class ReceptionInterface extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         pastReBtn = new javax.swing.JButton();
         chargersBtn = new javax.swing.JButton();
-        availabilityBtn = new javax.swing.JButton();
-        channelBtn = new javax.swing.JButton();
-        registerBtn = new javax.swing.JButton();
+        removeDocBtn = new javax.swing.JButton();
+        addDocBtn = new javax.swing.JButton();
+        addEmployeeBtn = new javax.swing.JButton();
         signOutBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         wifiButton = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(1366, 768));
-
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/DSC_1514.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/HR.jpg"))); // NOI18N
 
         jPanel3.setBackground(new java.awt.Color(102, 141, 243));
 
@@ -128,7 +121,7 @@ public class ReceptionInterface extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGap(0, 385, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,53 +166,52 @@ public class ReceptionInterface extends javax.swing.JPanel {
             }
         });
 
-        availabilityBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        availabilityBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/doc1.png"))); // NOI18N
-        availabilityBtn.setBorder(null);
-        availabilityBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        removeDocBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        removeDocBtn.setText("REMOVE DOCTOR");
+        removeDocBtn.setBorder(null);
+        removeDocBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                availabilityBtnMouseEntered(evt);
+                removeDocBtnMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                availabilityBtnMouseExited(evt);
+                removeDocBtnMouseExited(evt);
             }
         });
-        availabilityBtn.addActionListener(new java.awt.event.ActionListener() {
+        removeDocBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                availabilityBtnActionPerformed(evt);
+                removeDocBtnActionPerformed(evt);
             }
         });
 
-        channelBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        channelBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/appointment1.png"))); // NOI18N
-        channelBtn.setBorder(null);
-        channelBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        addDocBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        addDocBtn.setText("ADD DOCTOR");
+        addDocBtn.setBorder(null);
+        addDocBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                channelBtnMouseEntered(evt);
+                addDocBtnMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                channelBtnMouseExited(evt);
+                addDocBtnMouseExited(evt);
             }
         });
-        channelBtn.addActionListener(new java.awt.event.ActionListener() {
+        addDocBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                channelBtnActionPerformed(evt);
+                addDocBtnActionPerformed(evt);
             }
         });
 
-        registerBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/register1.png"))); // NOI18N
-        registerBtn.setBorder(null);
-        registerBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        addEmployeeBtn.setBorder(null);
+        addEmployeeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                registerBtnMouseEntered(evt);
+                addEmployeeBtnMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                registerBtnMouseExited(evt);
+                addEmployeeBtnMouseExited(evt);
             }
         });
-        registerBtn.addActionListener(new java.awt.event.ActionListener() {
+        addEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerBtnActionPerformed(evt);
+                addEmployeeBtnActionPerformed(evt);
             }
         });
 
@@ -229,11 +221,11 @@ public class ReceptionInterface extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(channelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addDocBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(availabilityBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(removeDocBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addEmployeeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(chargersBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -245,12 +237,12 @@ public class ReceptionInterface extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(availabilityBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(channelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(removeDocBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addDocBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(pastReBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(chargersBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(addEmployeeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(29, 29, 29))
         );
 
@@ -348,43 +340,35 @@ public class ReceptionInterface extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pastReBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pastReBtnActionPerformed
-        if(evt.getSource() == pastReBtn){
-            HospitalManagementSystem.update(this ,new PastRecordsGUI());
+    private void logOffMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOffMouseEntered
+        if(evt.getSource()== logOff){
+            logOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/logOff2.png")));
         }
-    }//GEN-LAST:event_pastReBtnActionPerformed
+    }//GEN-LAST:event_logOffMouseEntered
 
-    private void channelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_channelBtnActionPerformed
-        if(evt.getSource() == channelBtn){
-            HospitalManagementSystem.update(this ,new ChannelingHandlerGUI());
+    private void logOffMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOffMouseExited
+        if(evt.getSource()== logOff){
+            logOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/logOff1.png")));
         }
-    }//GEN-LAST:event_channelBtnActionPerformed
-
-    private void chargersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chargersBtnActionPerformed
-        if(evt.getSource() == chargersBtn){
-            HospitalManagementSystem.update(this ,new ServiceChargeGUI());
-        }
-    }//GEN-LAST:event_chargersBtnActionPerformed
-
-    private void availabilityBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availabilityBtnActionPerformed
-        if(evt.getSource() == availabilityBtn){
-            HospitalManagementSystem.update(this ,new DoctorAvailabilityGUI());
-        }
-    }//GEN-LAST:event_availabilityBtnActionPerformed
-
-    private void signOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutBtnActionPerformed
-        if(evt.getSource()== signOutBtn){
-            logOff.setVisible(true);
-            cancel.setVisible(true);
-            logOffText.setVisible(true);
-        }
-    }//GEN-LAST:event_signOutBtnActionPerformed
+    }//GEN-LAST:event_logOffMouseExited
 
     private void logOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOffActionPerformed
         if(evt.getSource()== logOff){
             HospitalManagementSystem.update(this ,new LoginPageGUI());
         }
     }//GEN-LAST:event_logOffActionPerformed
+
+    private void cancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseEntered
+        if(evt.getSource()== cancel){
+            cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/cancel2.png")));
+        }
+    }//GEN-LAST:event_cancelMouseEntered
+
+    private void cancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseExited
+        if(evt.getSource()== cancel){
+            cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/cancel1.png")));
+        }
+    }//GEN-LAST:event_cancelMouseExited
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         if (evt.getSource() == cancel) {
@@ -393,60 +377,6 @@ public class ReceptionInterface extends javax.swing.JPanel {
             logOffText.setVisible(false);
         }
     }//GEN-LAST:event_cancelActionPerformed
-
-    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
-        if(evt.getSource()== registerBtn){
-            HospitalManagementSystem.update(this ,new PatientRegistrationGUI());
-        }
-    }//GEN-LAST:event_registerBtnActionPerformed
-
-    private void availabilityBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_availabilityBtnMouseEntered
-        if(evt.getSource()== availabilityBtn){
-            availabilityBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/doc2.png")));
-        }
-    }//GEN-LAST:event_availabilityBtnMouseEntered
-
-    private void availabilityBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_availabilityBtnMouseExited
-        if(evt.getSource()== availabilityBtn){
-            availabilityBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/doc1.png")));
-        }
-    }//GEN-LAST:event_availabilityBtnMouseExited
-
-    private void channelBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_channelBtnMouseEntered
-        if(evt.getSource()== channelBtn){
-            channelBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/appointment2.png")));
-        }
-    }//GEN-LAST:event_channelBtnMouseEntered
-
-    private void channelBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_channelBtnMouseExited
-        if(evt.getSource()== channelBtn){
-            channelBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/appointment1.png")));
-        }
-    }//GEN-LAST:event_channelBtnMouseExited
-
-    private void registerBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerBtnMouseEntered
-        if(evt.getSource()== registerBtn){
-            registerBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/register2.png")));
-        }
-    }//GEN-LAST:event_registerBtnMouseEntered
-
-    private void registerBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerBtnMouseExited
-        if(evt.getSource()== registerBtn){
-            registerBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/register1.png")));
-        }
-    }//GEN-LAST:event_registerBtnMouseExited
-
-    private void chargersBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chargersBtnMouseEntered
-        if(evt.getSource()== chargersBtn){
-            chargersBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/chargers2.png")));
-        }
-    }//GEN-LAST:event_chargersBtnMouseEntered
-
-    private void chargersBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chargersBtnMouseExited
-        if(evt.getSource()== chargersBtn){
-            chargersBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/chargers1.png")));
-        }
-    }//GEN-LAST:event_chargersBtnMouseExited
 
     private void pastReBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pastReBtnMouseEntered
         if(evt.getSource()== pastReBtn){
@@ -460,35 +390,97 @@ public class ReceptionInterface extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_pastReBtnMouseExited
 
-    private void logOffMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOffMouseEntered
-        if(evt.getSource()== logOff){
-            logOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/logOff2.png")));
+    private void pastReBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pastReBtnActionPerformed
+        if(evt.getSource() == pastReBtn){
+            HospitalManagementSystem.update(this ,new PastRecordsGUI());
         }
-    }//GEN-LAST:event_logOffMouseEntered
+    }//GEN-LAST:event_pastReBtnActionPerformed
 
-    private void logOffMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOffMouseExited
-        if(evt.getSource()== logOff){
-            logOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/logOff1.png")));
+    private void chargersBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chargersBtnMouseEntered
+        if(evt.getSource()== chargersBtn){
+            chargersBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/chargers2.png")));
         }
-    }//GEN-LAST:event_logOffMouseExited
+    }//GEN-LAST:event_chargersBtnMouseEntered
 
-    private void cancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseEntered
-        if(evt.getSource()== cancel){
-            cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/cancel2.png")));
+    private void chargersBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chargersBtnMouseExited
+        if(evt.getSource()== chargersBtn){
+            chargersBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/chargers1.png")));
         }
-    }//GEN-LAST:event_cancelMouseEntered
+    }//GEN-LAST:event_chargersBtnMouseExited
 
-    private void cancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseExited
-        if(evt.getSource()== cancel){
-            cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/cancel1.png")));
+    private void chargersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chargersBtnActionPerformed
+        if(evt.getSource() == chargersBtn){
+            HospitalManagementSystem.update(this ,new ServiceChargeGUI());
         }
-    }//GEN-LAST:event_cancelMouseExited
-    
+    }//GEN-LAST:event_chargersBtnActionPerformed
+
+    private void removeDocBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeDocBtnMouseEntered
+        if(evt.getSource()== removeDocBtn){
+            removeDocBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/doc2.png")));
+        }
+    }//GEN-LAST:event_removeDocBtnMouseEntered
+
+    private void removeDocBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeDocBtnMouseExited
+        if(evt.getSource()== removeDocBtn){
+            removeDocBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/doc1.png")));
+        }
+    }//GEN-LAST:event_removeDocBtnMouseExited
+
+    private void removeDocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeDocBtnActionPerformed
+        if(evt.getSource() == removeDocBtn){
+            HospitalManagementSystem.update(this ,new RemoveDoctorGUI());
+        }
+    }//GEN-LAST:event_removeDocBtnActionPerformed
+
+    private void addDocBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDocBtnMouseEntered
+        if(evt.getSource()== addDocBtn){
+            addDocBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/appointment2.png")));
+        }
+    }//GEN-LAST:event_addDocBtnMouseEntered
+
+    private void addDocBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDocBtnMouseExited
+        if(evt.getSource()== addDocBtn){
+            addDocBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/appointment1.png")));
+        }
+    }//GEN-LAST:event_addDocBtnMouseExited
+
+    private void addDocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addDocBtnActionPerformed
+        if(evt.getSource() == addDocBtn){
+            HospitalManagementSystem.update(this ,new AddDoctorGUI());
+        }
+    }//GEN-LAST:event_addDocBtnActionPerformed
+
+    private void addEmployeeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addEmployeeBtnMouseEntered
+        if(evt.getSource()== addEmployeeBtn){
+            addEmployeeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/register2.png")));
+        }
+    }//GEN-LAST:event_addEmployeeBtnMouseEntered
+
+    private void addEmployeeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addEmployeeBtnMouseExited
+        if(evt.getSource()== addEmployeeBtn){
+            addEmployeeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/register1.png")));
+        }
+    }//GEN-LAST:event_addEmployeeBtnMouseExited
+
+    private void addEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeBtnActionPerformed
+        if(evt.getSource()== addEmployeeBtn){
+            HospitalManagementSystem.update(this ,new AddEmployeeGUI());
+        }
+    }//GEN-LAST:event_addEmployeeBtnActionPerformed
+
+    private void signOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutBtnActionPerformed
+        if(evt.getSource()== signOutBtn){
+            logOff.setVisible(true);
+            cancel.setVisible(true);
+            logOffText.setVisible(true);
+        }
+    }//GEN-LAST:event_signOutBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton availabilityBtn;
+    private javax.swing.JButton addDocBtn;
+    private javax.swing.JButton addEmployeeBtn;
     private javax.swing.JButton cancel;
-    private javax.swing.JButton channelBtn;
     private javax.swing.JButton chargersBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -500,7 +492,7 @@ public class ReceptionInterface extends javax.swing.JPanel {
     private javax.swing.JButton logOff;
     private javax.swing.JLabel logOffText;
     private javax.swing.JButton pastReBtn;
-    private javax.swing.JButton registerBtn;
+    private javax.swing.JButton removeDocBtn;
     private javax.swing.JButton signOutBtn;
     private javax.swing.JButton wifiButton;
     // End of variables declaration//GEN-END:variables

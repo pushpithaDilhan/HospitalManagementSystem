@@ -8,7 +8,6 @@ public class HospitalManagementSystem {
     private static JFrame frame;
     
     public static void main(String[] args) {
-        
         ConnectionHandler.conToDB();
         
         frame = new JFrame();
