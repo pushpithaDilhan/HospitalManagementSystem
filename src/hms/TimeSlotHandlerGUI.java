@@ -64,28 +64,28 @@ public class TimeSlotHandlerGUI extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(0, 39, 97));
 
-        jLabel1.setFont(new java.awt.Font("Buxton Sketch", 1, 30)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Buxton Sketch", 0, 30)); // NOI18N
         jLabel1.setText("POSSIBLE TIME");
 
-        jLabel2.setFont(new java.awt.Font("Buxton Sketch", 1, 30)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Buxton Sketch", 0, 30)); // NOI18N
         jLabel2.setText("AVAILABILITY ");
 
-        jLabel3.setFont(new java.awt.Font("Buxton Sketch", 1, 30)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Buxton Sketch", 0, 30)); // NOI18N
         jLabel3.setText("DOCTOR ");
 
-        jLabel4.setFont(new java.awt.Font("Buxton Sketch", 1, 30)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Buxton Sketch", 0, 30)); // NOI18N
         jLabel4.setText("DATE");
 
         docLabel.setBackground(new java.awt.Color(255, 255, 255));
-        docLabel.setFont(new java.awt.Font("Buxton Sketch", 1, 30)); // NOI18N
+        docLabel.setFont(new java.awt.Font("Buxton Sketch", 0, 30)); // NOI18N
 
         timeLabel.setBackground(new java.awt.Color(255, 255, 255));
-        timeLabel.setFont(new java.awt.Font("Buxton Sketch", 1, 30)); // NOI18N
+        timeLabel.setFont(new java.awt.Font("Buxton Sketch", 0, 30)); // NOI18N
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Sinhala-Lasitha5", 1, 24)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Buxton Sketch", 1, 28)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Buxton Sketch", 0, 30)); // NOI18N
         jLabel9.setText("Patient NIC Number");
 
         backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/backButton.png"))); // NOI18N
@@ -191,16 +191,16 @@ public class TimeSlotHandlerGUI extends javax.swing.JPanel {
         wifiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/Wifi-Error.png"))); // NOI18N
         wifiButton.setBorder(null);
 
-        dateLabel.setFont(new java.awt.Font("Buxton Sketch", 1, 30)); // NOI18N
+        dateLabel.setFont(new java.awt.Font("Buxton Sketch", 0, 30)); // NOI18N
 
-        remTS.setFont(new java.awt.Font("Buxton Sketch", 1, 30)); // NOI18N
+        remTS.setFont(new java.awt.Font("Buxton Sketch", 0, 30)); // NOI18N
         remTS.setText("TIMESLOTS LEFT");
 
-        reTimeSlotlbl.setFont(new java.awt.Font("Buxton Sketch", 1, 30)); // NOI18N
+        reTimeSlotlbl.setFont(new java.awt.Font("Buxton Sketch", 0, 30)); // NOI18N
 
-        availabilitylbl.setFont(new java.awt.Font("Buxton Sketch", 1, 30)); // NOI18N
+        availabilitylbl.setFont(new java.awt.Font("Buxton Sketch", 0, 30)); // NOI18N
 
-        nicTextField.setFont(new java.awt.Font("Buxton Sketch", 1, 30)); // NOI18N
+        nicTextField.setFont(new java.awt.Font("Buxton Sketch", 0, 30)); // NOI18N
         nicTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 nicTextFieldMouseEntered(evt);
@@ -212,20 +212,20 @@ public class TimeSlotHandlerGUI extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(wifiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 27, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(wifiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 150, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,10 +245,11 @@ public class TimeSlotHandlerGUI extends javax.swing.JPanel {
                                         .addComponent(reTimeSlotlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(availabilitylbl, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(nicTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(129, 129, 129))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
+                                .addGap(129, 129, 129))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
         );

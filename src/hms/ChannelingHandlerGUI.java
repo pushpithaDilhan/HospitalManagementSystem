@@ -15,7 +15,6 @@ public class ChannelingHandlerGUI extends javax.swing.JPanel {
         initComponents();
         ConnectionHandler.updateConnection(wifiButton);
         SundayButton.setSelected(true);
-        cateCombo.setEnabled(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -370,49 +369,7 @@ public class ChannelingHandlerGUI extends javax.swing.JPanel {
 
     private void cateComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cateComboActionPerformed
         if (evt.getSource() == cateCombo) {
-            if (cateCombo.getSelectedIndex() == 0) {
-                cate = 0;
-            } else if (cateCombo.getSelectedIndex() == 1) {
-                cate = 1;
-            } else if (cateCombo.getSelectedIndex() == 2) {
-                cate = 2;
-            } else if (cateCombo.getSelectedIndex() == 3) {
-                cate = 3;
-            } else if (cateCombo.getSelectedIndex() == 4) {
-                cate = 4;
-            } else if (cateCombo.getSelectedIndex() == 5) {
-                cate = 5;
-            } else if (cateCombo.getSelectedIndex() == 6) {
-                cate = 6;
-            } else if (cateCombo.getSelectedIndex() == 7) {
-                cate = 7;
-            } else if (cateCombo.getSelectedIndex() == 8) {
-                cate = 8;
-            } else if (cateCombo.getSelectedIndex() == 9) {
-                cate = 9;
-            } else if (cateCombo.getSelectedIndex() == 10) {
-                cate = 10;
-            } else if (cateCombo.getSelectedIndex() == 11) {
-                cate = 11;
-            } else if (cateCombo.getSelectedIndex() == 12) {
-                cate = 12;
-            } else if (cateCombo.getSelectedIndex() == 13) {
-                cate = 13;
-            } else if (cateCombo.getSelectedIndex() == 14) {
-                cate = 14;
-            } else if (cateCombo.getSelectedIndex() == 15) {
-                cate = 15;
-            } else if (cateCombo.getSelectedIndex() == 16) {
-                cate = 16;
-            } else if (cateCombo.getSelectedIndex() == 17) {
-                cate = 17;
-            } else if (cateCombo.getSelectedIndex() == 18) {
-                cate = 18;
-            } else if (cateCombo.getSelectedIndex() == 19) {
-                cate = 19;
-            } else if (cateCombo.getSelectedIndex() == 20) {
-                cate = 20;
-            }
+            cate = cateCombo.getSelectedIndex();
         }
     }//GEN-LAST:event_cateComboActionPerformed
 
@@ -535,9 +492,8 @@ public class ChannelingHandlerGUI extends javax.swing.JPanel {
     private void setValue(JRadioButton btn ,int index){
         if (btn.isSelected()) {
             day = index;
-        } else {
-            day = -1;
-        }clear(btn);
+        }
+        clear(btn);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

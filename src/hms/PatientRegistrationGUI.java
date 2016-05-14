@@ -527,8 +527,7 @@ public class PatientRegistrationGUI extends javax.swing.JPanel {
         boolean isok = true;
         if (evt.getSource() == registertBtn) {
             
-            ConnectionHandler
-                    .updateConnection(wifiButton);
+            ConnectionHandler.updateConnection(wifiButton);
             
             if (fnameText.getText().equals("")) {
                 fnameText.setBackground(Color.LIGHT_GRAY);
