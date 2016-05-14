@@ -1,27 +1,21 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package hms;
 
-//import java.util.Date;
-import java.sql.SQLException;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-//import javax.swing.JSpinner;
-//import javax.swing.SpinnerDateModel;
-
-
-/*@author Admin
+/**
+ *
+ * @author HP
  */
 public class AddDoctorGUI extends javax.swing.JPanel {
-    String docStr="";
-    int cate;
+
     /**
-     * Creates new form AddDoctor
+     * Creates new form AddDoctorGUI
      */
     public AddDoctorGUI() {
         initComponents();
-        ConnectionHandler.updateConnection(wifiButton);
     }
 
     /**
@@ -33,91 +27,153 @@ public class AddDoctorGUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        docId = new javax.swing.JTextField();
-        docNameTxt = new javax.swing.JTextField();
-        addressTxt = new javax.swing.JTextField();
-        mobileTxt = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        mondayCB = new javax.swing.JCheckBox();
-        tuesdayCB = new javax.swing.JCheckBox();
-        thursdayCB = new javax.swing.JCheckBox();
-        wednesdayCB = new javax.swing.JCheckBox();
-        fridayCB = new javax.swing.JCheckBox();
-        saturdayCB = new javax.swing.JCheckBox();
-        sundayCB = new javax.swing.JCheckBox();
         jLabel7 = new javax.swing.JLabel();
-        addBtn = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        signOutBtn = new javax.swing.JButton();
+        wifiButton = new javax.swing.JButton();
+        mondayCB = new javax.swing.JCheckBox();
+        jLabel9 = new javax.swing.JLabel();
         mondayT1 = new javax.swing.JComboBox();
+        tuesdayCB = new javax.swing.JCheckBox();
         tuesdayT1 = new javax.swing.JComboBox();
+        wednesdayCB = new javax.swing.JCheckBox();
         wednesdayT1 = new javax.swing.JComboBox();
         thursdayT1 = new javax.swing.JComboBox();
+        thursdayCB = new javax.swing.JCheckBox();
+        fridayCB = new javax.swing.JCheckBox();
         fridayT1 = new javax.swing.JComboBox();
+        saturdayCB = new javax.swing.JCheckBox();
         saturdayT1 = new javax.swing.JComboBox();
+        sundayCB = new javax.swing.JCheckBox();
         sundayT1 = new javax.swing.JComboBox();
-        cateCombo = new javax.swing.JComboBox();
-        jLabel9 = new javax.swing.JLabel();
-        pw1 = new javax.swing.JPasswordField();
-        pw2 = new javax.swing.JPasswordField();
-        jLabel10 = new javax.swing.JLabel();
+        docId = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        wifiButton = new javax.swing.JButton();
-        backBtn = new javax.swing.JButton();
+        mobileText = new javax.swing.JPasswordField();
+        docAddText = new javax.swing.JPasswordField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        docNameTxt = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
         birthDayChooser = new com.toedter.calendar.JDateChooser();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        PassField = new javax.swing.JPasswordField();
+        conPassField = new javax.swing.JPasswordField();
+        btnView = new javax.swing.JButton();
 
-        setMaximumSize(new java.awt.Dimension(150, 50));
-        setMinimumSize(new java.awt.Dimension(150, 50));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1366, 768));
 
-        jLabel1.setText("ID NUMBER");
-        jLabel1.setMaximumSize(new java.awt.Dimension(150, 50));
-        jLabel1.setMinimumSize(new java.awt.Dimension(150, 50));
+        jPanel3.setBackground(new java.awt.Color(102, 141, 243));
 
-        jLabel2.setText("DOCTOR NAME");
-        jLabel2.setMaximumSize(new java.awt.Dimension(150, 50));
-        jLabel2.setMinimumSize(new java.awt.Dimension(150, 50));
+        jLabel8.setFont(new java.awt.Font("Buxton Sketch", 1, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 39, 97));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("DOCTOR");
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel3.setText("CATEGORY");
-        jLabel3.setMaximumSize(new java.awt.Dimension(150, 50));
-        jLabel3.setMinimumSize(new java.awt.Dimension(150, 50));
+        jLabel12.setFont(new java.awt.Font("Buxton Sketch", 1, 36)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 39, 97));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("REGISTRATION");
+        jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel4.setText("MOBILE");
-        jLabel4.setMaximumSize(new java.awt.Dimension(150, 50));
-        jLabel4.setMinimumSize(new java.awt.Dimension(150, 50));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 34, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        jLabel5.setText("ADDRESS");
-        jLabel5.setMaximumSize(new java.awt.Dimension(150, 50));
-        jLabel5.setMinimumSize(new java.awt.Dimension(150, 50));
+        jPanel5.setBackground(new java.awt.Color(102, 141, 243));
 
-        docId.addActionListener(new java.awt.event.ActionListener() {
+        jPanel2.setBackground(new java.awt.Color(102, 97, 225));
+
+        jLabel2.setBackground(new java.awt.Color(77, 38, 249));
+        jLabel2.setFont(new java.awt.Font("Buxton Sketch", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("CO-OPERATIVE HOSPITAL GALLE ");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 271, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        signOutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/backButton.png"))); // NOI18N
+        signOutBtn.setBorder(null);
+        signOutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                docIdActionPerformed(evt);
+                signOutBtnActionPerformed(evt);
             }
         });
 
-        docNameTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                docNameTxtActionPerformed(evt);
-            }
-        });
+        wifiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/Wifi-Error.png"))); // NOI18N
+        wifiButton.setBorder(null);
 
-        addressTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressTxtActionPerformed(evt);
-            }
-        });
-
-        mobileTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mobileTxtActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setText("Available Days & Time");
-
+        mondayCB.setBackground(new java.awt.Color(255, 255, 255));
+        mondayCB.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
         mondayCB.setText("Monday");
         mondayCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,47 +181,11 @@ public class AddDoctorGUI extends javax.swing.JPanel {
             }
         });
 
-        tuesdayCB.setText("Tuesday");
+        jLabel9.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("SCHEDULE");
 
-        thursdayCB.setText("Thursday");
-
-        wednesdayCB.setText("Wednesday");
-
-        fridayCB.setText("Friday");
-
-        saturdayCB.setText("Saturday");
-
-        sundayCB.setText("Sunday");
-
-        jLabel7.setText("FROM");
-
-        addBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/addbutton1.png"))); // NOI18N
-        addBtn.setToolTipText("");
-        addBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addBtnMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addBtnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                addBtnMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                addBtnMousePressed(evt);
-            }
-        });
-        addBtn.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                addBtnMouseMoved(evt);
-            }
-        });
-        addBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBtnActionPerformed(evt);
-            }
-        });
-
+        mondayT1.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
         mondayT1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" }));
         mondayT1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,402 +193,371 @@ public class AddDoctorGUI extends javax.swing.JPanel {
             }
         });
 
+        tuesdayCB.setBackground(new java.awt.Color(255, 255, 255));
+        tuesdayCB.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        tuesdayCB.setText("Tuesday");
+
+        tuesdayT1.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
         tuesdayT1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" }));
 
+        wednesdayCB.setBackground(new java.awt.Color(255, 255, 255));
+        wednesdayCB.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        wednesdayCB.setText("Wednesday");
+
+        wednesdayT1.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
         wednesdayT1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" }));
 
+        thursdayT1.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
         thursdayT1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" }));
 
+        thursdayCB.setBackground(new java.awt.Color(255, 255, 255));
+        thursdayCB.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        thursdayCB.setText("Thursday");
+
+        fridayCB.setBackground(new java.awt.Color(255, 255, 255));
+        fridayCB.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        fridayCB.setText("Friday");
+
+        fridayT1.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
         fridayT1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" }));
 
+        saturdayCB.setBackground(new java.awt.Color(255, 255, 255));
+        saturdayCB.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        saturdayCB.setText("Saturday");
+
+        saturdayT1.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
         saturdayT1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" }));
 
+        sundayCB.setBackground(new java.awt.Color(255, 255, 255));
+        sundayCB.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        sundayCB.setText("Sunday");
+
+        sundayT1.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
         sundayT1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" }));
 
-        cateCombo.setFont(new java.awt.Font("SansSerif", 0, 23)); // NOI18N
-        cateCombo.setMaximumRowCount(19);
-        cateCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " Cancer Surgeons", " Cardiologist Surgeons", " Cardiologist", " Chest Physicion", " Consultant Physicion", " Dental Surgeons", " Dermatologists", " ENT Surgeons", " Eye Surgeons", " Hematologists", " Neurologists", " Obstericians & Gynaecologists", " Oncologists(Cancer)", " Orthopaedic Surgeons", " Pathologists", " Pediatricians", " Psychiatrists", " Radiologists", " Rheumatologists", " Vascular Surgeons", " Venereologists" }));
-        cateCombo.addActionListener(new java.awt.event.ActionListener() {
+        docId.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        docId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cateComboActionPerformed(evt);
+                docIdActionPerformed(evt);
             }
         });
 
-        jLabel9.setText("BIRTH DAY");
+        jLabel1.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        jLabel1.setText("ID NUMBER");
+        jLabel1.setMaximumSize(new java.awt.Dimension(150, 50));
+        jLabel1.setMinimumSize(new java.awt.Dimension(150, 50));
 
-        pw1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pw1ActionPerformed(evt);
-            }
-        });
-
-        pw2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pw2ActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setText("RE ENTER PASSWORD");
-
+        jLabel11.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
         jLabel11.setText("PASSWORD");
 
-        wifiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/Wifi-Error.png"))); // NOI18N
-        wifiButton.setBorder(null);
-
-        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/backButton.png"))); // NOI18N
-        backBtn.setBorder(null);
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
+        mobileText.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        mobileText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
+                mobileTextActionPerformed(evt);
             }
         });
+
+        docAddText.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        docAddText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                docAddTextActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        jLabel10.setText("CONFIRM PASSWORD");
+
+        jLabel3.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        jLabel3.setText("DOCTOR NAME");
+        jLabel3.setMaximumSize(new java.awt.Dimension(150, 50));
+        jLabel3.setMinimumSize(new java.awt.Dimension(150, 50));
+
+        docNameTxt.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        docNameTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                docNameTxtActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        jLabel13.setText("BIRTH DAY");
+
+        jLabel4.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        jLabel4.setText("MOBILE");
+        jLabel4.setMaximumSize(new java.awt.Dimension(150, 50));
+        jLabel4.setMinimumSize(new java.awt.Dimension(150, 50));
+
+        jLabel5.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        jLabel5.setText("ADDRESS");
+        jLabel5.setMaximumSize(new java.awt.Dimension(150, 50));
+        jLabel5.setMinimumSize(new java.awt.Dimension(150, 50));
+
+        PassField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PassFieldActionPerformed(evt);
+            }
+        });
+
+        conPassField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conPassFieldActionPerformed(evt);
+            }
+        });
+
+        btnView.setText("View Time Slots");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(16, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(signOutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(wifiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(6, 6, 6))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(docNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(birthDayChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mobileText, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(docId, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(PassField)
+                                    .addComponent(conPassField)
+                                    .addComponent(docAddText, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(fridayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(saturdayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(mondayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tuesdayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(wednesdayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(thursdayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(thursdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(wednesdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fridayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(saturdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tuesdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mondayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(sundayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(sundayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)))
+                        .addGap(90, 90, 90))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(116, 116, 116)))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(68, 68, 68))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(signOutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(wifiButton))
+                .addGap(28, 28, 28)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(docNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(docId, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(birthDayChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mobileText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(docAddText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PassField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(conPassField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sundayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(sundayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(mondayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mondayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tuesdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tuesdayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(wednesdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(wednesdayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(thursdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(thursdayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(fridayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fridayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(saturdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(saturdayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(sundayCB, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(fridayCB)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1010, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(saturdayCB)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 996, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(thursdayCB)
-                            .addComponent(wednesdayCB)
-                            .addComponent(tuesdayCB)
-                            .addComponent(mondayCB))
-                        .addGap(175, 175, 175)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(thursdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(wednesdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fridayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(sundayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(saturdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tuesdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(mondayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 754, Short.MAX_VALUE)))
-                .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(224, 224, 224)
-                                .addComponent(jLabel7))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(239, 239, 239)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(935, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(wifiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(cateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel10))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mobileTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(birthDayChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pw2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(docNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pw1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(docId, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(473, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(backBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(wifiButton))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(docId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pw1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(pw2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(docNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(birthDayChooser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mobileTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(90, 90, 90)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(52, 52, 52))
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mondayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mondayCB))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tuesdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tuesdayCB))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(wednesdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(wednesdayCB))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(thursdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(thursdayCB))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fridayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fridayCB))
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(saturdayCB)
-                            .addComponent(saturdayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(addBtn))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sundayT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sundayCB))
-                .addGap(100, 100, 100))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        if (evt.getSource() == btnView) {
+
+            LabTechnician lt = new LabTechnician();
+
+            resultList.removeAll();
+            TimeList.removeAll();
+
+            int pointer = 0;                                                    // Points to the current patient.
+
+            int dateDifference = lt.getDateDifference(jDateChooser1.getDate());
+
+            int index = cmbCategory.getSelectedIndex();                         // index of the selected category.
+            lt.selectTimeDuration(index);
+
+            int startingPatient = dateDifference * LabTechnician.selectedTimeSlots.length;
+
+            //ConnectionHandler.updateConnection(wifiButton);
+            try {
+
+                ResultSet result = lt.viewPatientList((cmbCategory.getSelectedIndex()));
+
+                for (int i = 0; i < startingPatient; i++) {         // to get to the correct patient on the correct day.
+                    result.next();                                  // no minus numbers will be given because, the date will be set to the starting day of the records.
+                }
+
+                while (result.next() && pointer < LabTechnician.selectedTimeSlots.length) {
+                    resultList.add(result.getString(1));
+                    TimeList.add(LabTechnician.selectedTimeSlots[pointer]);
+                    pointer++;
+
+                }
+            } catch (SQLException | NullPointerException ex) {
+            }
+        }
+    }//GEN-LAST:event_btnViewActionPerformed
+
+    private void signOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutBtnActionPerformed
+        if(evt.getSource()== signOutBtn){
+            logOff.setVisible(true);
+            cancel.setVisible(true);
+            logOffText.setVisible(true);
+        }
+    }//GEN-LAST:event_signOutBtnActionPerformed
 
     private void mondayCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mondayCBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mondayCBActionPerformed
 
-    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        //Gather data
-       /* Date bDay = birthDayChooser.getDate();
-        String name = docNameTxt.getText();
-        String id = docId.getText();
-        //String mail = mailTxt.getText();
-        String telNo = mobileTxt.getText();
-        String address = addressTxt.getText();
-        if(id.length()!=10){
-            infoBox("ID number is not valid","ID num error!");
-            docId.setText("");
-        }
-        if(telNo.length()!=10){
-            infoBox("Mobile number is not valid","Phone num error!");
-            mobileTxt.setText("");
-        }
-        String[] availability={"0","0","0","0","0","0","0"};
-        //days-->1 , available //0-> not available
-        Boolean[] cbDays={mondayCB.isSelected(),tuesdayCB.isSelected(),wednesdayCB.isSelected(),thursdayCB.isSelected(),fridayCB.isSelected(),saturdayCB.isSelected(),sundayCB.isSelected()};
-        for(int i=0;i<cbDays.length;i++ ){
-            if(cbDays[i]){
-                availability[i]="1";
-        }
-    }
-        timeDuration =>{start time,end time}
-        String[] timeDuration = {mondayT1.getSelectedItem().toString().split(":")[0],mondayT2.getSelectedItem().toString().split(":")[0],tuesdayT1.getSelectedItem().toString().split(":")[0],tuesdayT2.getSelectedItem().toString().split(":")[0],wednesdayT1.getSelectedItem().toString().split(":")[0],wednesdayT2.getSelectedItem().toString().split(":")[0],thursdayT1.getSelectedItem().toString().split(":")[0],thursdayT2.getSelectedItem().toString().split(":")[0]
-        ,fridayT1.getSelectedItem().toString().split(":")[0],fridayT2.getSelectedItem().toString().split(":")[0],saturdayT1.getSelectedItem().toString().split(":")[0],saturdayT2.getSelectedItem().toString().split(":")[0],sundayT1.getSelectedItem().toString().split(":")[0],sundayT2.getSelectedItem().toString().split(":")[0]};
-        //creating docStr
-        //docStr = daaynum,attendence=yes/no,12spaces->sarttime-endtime
-        //monday =1,tues =2 ...
-        
-        for(int i=0;i<7;i++){
-            docStr += Integer.toString(i)+availability[i]+timeDuration[2*i]+timeDuration[2*i+1];
-        }
-        try {
-            //encrypt finished
-            new AddDoctor().addDoctor(cate, bDay, name, id,telNo, address, docStr);
-        } catch (Exception ex) {
-            infoBox("DB error!","Please Check connection");
-        }*/
-        
-    }//GEN-LAST:event_addBtnActionPerformed
-
-    private void addBtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseMoved
-        if(evt.getSource()==addBtn)
-        addBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/addbutton1.png")));
-    }//GEN-LAST:event_addBtnMouseMoved
-
-    private void addBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseClicked
-        //nothing
-    }//GEN-LAST:event_addBtnMouseClicked
-
-    private void addBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseEntered
-        if(evt.getSource()==addBtn)
-        addBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/addbutton2.png")));
-    }//GEN-LAST:event_addBtnMouseEntered
-
-    private void addBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMousePressed
-        if(evt.getSource()==addBtn)
-        addBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/addbutton1.png")));
-    }//GEN-LAST:event_addBtnMousePressed
-
-    private void addBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseExited
-        
-    }//GEN-LAST:event_addBtnMouseExited
-
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        if(evt.getSource()== backBtn){
-            HospitalManagementSystem.update(this ,new HRStaffInterface());
-        }
-    }//GEN-LAST:event_backBtnActionPerformed
+    private void mondayT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mondayT1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mondayT1ActionPerformed
 
     private void docIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_docIdActionPerformed
 
-    private void pw1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pw1ActionPerformed
+    private void mobileTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileTextActionPerformed
 
-    }//GEN-LAST:event_pw1ActionPerformed
+    }//GEN-LAST:event_mobileTextActionPerformed
 
-    private void pw2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pw2ActionPerformed
+    private void docAddTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docAddTextActionPerformed
 
-    }//GEN-LAST:event_pw2ActionPerformed
+    }//GEN-LAST:event_docAddTextActionPerformed
 
     private void docNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docNameTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_docNameTxtActionPerformed
 
-    private void mobileTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileTxtActionPerformed
+    private void PassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_mobileTxtActionPerformed
+    }//GEN-LAST:event_PassFieldActionPerformed
 
-    private void addressTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressTxtActionPerformed
+    private void conPassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conPassFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addressTxtActionPerformed
+    }//GEN-LAST:event_conPassFieldActionPerformed
 
-    private void cateComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cateComboActionPerformed
-        if (evt.getSource() == cateCombo) {
-            if (cateCombo.getSelectedIndex() == 0) {
-                cate = 0;
-            } else if (cateCombo.getSelectedIndex() == 1) {
-                cate = 1;
-            } else if (cateCombo.getSelectedIndex() == 2) {
-                cate = 2;
-            } else if (cateCombo.getSelectedIndex() == 3) {
-                cate = 3;
-            } else if (cateCombo.getSelectedIndex() == 4) {
-                cate = 4;
-            } else if (cateCombo.getSelectedIndex() == 5) {
-                cate = 5;
-            } else if (cateCombo.getSelectedIndex() == 6) {
-                cate = 6;
-            } else if (cateCombo.getSelectedIndex() == 7) {
-                cate = 7;
-            } else if (cateCombo.getSelectedIndex() == 8) {
-                cate = 8;
-            } else if (cateCombo.getSelectedIndex() == 9) {
-                cate = 9;
-            } else if (cateCombo.getSelectedIndex() == 10) {
-                cate = 10;
-            } else if (cateCombo.getSelectedIndex() == 11) {
-                cate = 11;
-            } else if (cateCombo.getSelectedIndex() == 12) {
-                cate = 12;
-            } else if (cateCombo.getSelectedIndex() == 13) {
-                cate = 13;
-            } else if (cateCombo.getSelectedIndex() == 14) {
-                cate = 14;
-            } else if (cateCombo.getSelectedIndex() == 15) {
-                cate = 15;
-            } else if (cateCombo.getSelectedIndex() == 16) {
-                cate = 16;
-            } else if (cateCombo.getSelectedIndex() == 17) {
-                cate = 17;
-            } else if (cateCombo.getSelectedIndex() == 18) {
-                cate = 18;
-            } else if (cateCombo.getSelectedIndex() == 19) {
-                cate = 19;
-            } else if (cateCombo.getSelectedIndex() == 20) {
-                cate = 20;
-            }
-        }
-    }//GEN-LAST:event_cateComboActionPerformed
 
-    private void mondayT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mondayT1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mondayT1ActionPerformed
-    @SuppressWarnings("empty-statement")
-    
-    
-   /* private void encryptDocData(){
-        String[] availability={"0","0","0","0","0","0","0"};
-        //days-->1 , available //0-> not available
-        Boolean[] cbDays={mondayCB.isSelected(),tuesdayCB.isSelected(),wednesdayCB.isSelected(),thursdayCB.isSelected(),fridayCB.isSelected(),saturdayCB.isSelected(),sundayCB.isSelected()};
-        for(int i=0;i<=cbDays.length;i++ ){
-            if(cbDays[i]){
-                availability[i]="1";
-        }
-    }
-        //timeDuration =>{start time,end time}
-        String[] timeDuration = {mondayT1.getSelectedItem().toString().split(":")[0],mondayT2.getSelectedItem().toString().split(":")[0],tuesdayT1.getSelectedItem().toString().split(":")[0],tuesdayT2.getSelectedItem().toString().split(":")[0],wednesdayT1.getSelectedItem().toString().split(":")[0],wednesdayT2.getSelectedItem().toString().split(":")[0],thursdayT1.getSelectedItem().toString().split(":")[0],thursdayT2.getSelectedItem().toString().split(":")[0]
-        ,fridayT1.getSelectedItem().toString().split(":")[0],fridayT2.getSelectedItem().toString().split(":")[0],saturdayT1.getSelectedItem().toString().split(":")[0],saturdayT2.getSelectedItem().toString().split(":")[0],sundayT1.getSelectedItem().toString().split(":")[0],sundayT2.getSelectedItem().toString().split(":")[0]};
-        //creating docStr
-        //docStr = daaynum,attendence=yes/no,12spaces->sarttime-endtime
-        //monday =1,tues =2 ...
-        String docStr="";
-        for(int i=0;i<7;i++){
-            docStr += Integer.toString(i)+availability[i]+timeDuration[2*i]+timeDuration[2*i+1];
-        }
-    }
-*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addBtn;
-    private javax.swing.JTextField addressTxt;
-    private javax.swing.JButton backBtn;
+    private javax.swing.JPasswordField PassField;
     private com.toedter.calendar.JDateChooser birthDayChooser;
-    private javax.swing.JComboBox cateCombo;
+    private javax.swing.JButton btnView;
+    private javax.swing.JPasswordField conPassField;
+    private javax.swing.JPasswordField docAddText;
     private javax.swing.JTextField docId;
     private javax.swing.JTextField docNameTxt;
     private javax.swing.JCheckBox fridayCB;
@@ -576,20 +565,26 @@ public class AddDoctorGUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField mobileTxt;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPasswordField mobileText;
     private javax.swing.JCheckBox mondayCB;
     private javax.swing.JComboBox mondayT1;
-    private javax.swing.JPasswordField pw1;
-    private javax.swing.JPasswordField pw2;
     private javax.swing.JCheckBox saturdayCB;
     private javax.swing.JComboBox saturdayT1;
+    private javax.swing.JButton signOutBtn;
     private javax.swing.JCheckBox sundayCB;
     private javax.swing.JComboBox sundayT1;
     private javax.swing.JCheckBox thursdayCB;
@@ -600,11 +595,4 @@ public class AddDoctorGUI extends javax.swing.JPanel {
     private javax.swing.JComboBox wednesdayT1;
     private javax.swing.JButton wifiButton;
     // End of variables declaration//GEN-END:variables
-
-
-    public static void infoBox(String infoMessage, String titleBar)
-    {
-        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
-    }
-    
 }
