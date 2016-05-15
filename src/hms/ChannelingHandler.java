@@ -7,16 +7,13 @@ import java.sql.SQLException;
 
 public class ChannelingHandler {
     
-    public ResultSet getDoctorsList(int date, int cate){
+    public ResultSet getDoctorsList(int cate){
         ResultSet result = null; 
-        try {                                                                     //stringcode not yet added
-            PreparedStatement state1 = ConnectionHandler.conToDB().prepareStatement("SELECT name FROM doctor WHERE category = '" +cate+ "'");
+        try {                                                                     
+            PreparedStatement state1 = ConnectionHandler.conToDB().prepareStatement("SELECT name,schedule_code FROM doctor WHERE category = '" +cate+ "'");
             result = state1.executeQuery();
-            
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
         }
         return result;
     }
-    
-    
 }

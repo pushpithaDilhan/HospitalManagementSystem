@@ -15,8 +15,9 @@ public class LoginPageGUI extends javax.swing.JPanel {
     
     
     public LoginPageGUI() {
-        initComponents();
-        ConnectionHandler.updateConnection(wifiButton);
+     
+            initComponents();
+        
     }
 
     /**
@@ -49,7 +50,7 @@ public class LoginPageGUI extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         hospitalmage.setBackground(new java.awt.Color(102, 255, 0));
-        hospitalmage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/DSC_1369.jpg"))); // NOI18N
+        hospitalmage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/DSC_1368.jpg"))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -280,10 +281,10 @@ public class LoginPageGUI extends javax.swing.JPanel {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         if (evt.getSource() == login) {
-            try {
+          
                 ConnectionHandler.updateConnection(wifiButton);
                 Security s = new Security();
-                String employee = new LoginPage().validate(username.getText().trim(), s.hash(String.valueOf(password.getPassword()).trim()));
+                String employee = new LoginPage().validate(username.getText().trim(), String.valueOf(password.getPassword()).trim());
                 
                 if(employee == null){
                     JOptionPane.showMessageDialog(null, "Invalid Username or Password");
@@ -299,9 +300,7 @@ public class LoginPageGUI extends javax.swing.JPanel {
                         Logger.getLogger(LoginPageGUI.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            } catch (NoSuchAlgorithmException ex) {
-                Logger.getLogger(LoginPageGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
             
         }
     }//GEN-LAST:event_loginActionPerformed

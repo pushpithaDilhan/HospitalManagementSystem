@@ -5,17 +5,21 @@
  */
 package hms;
 
+import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author HP
  */
 public class PastRecordsGUI extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PastRecordsGUI
-     */
+    private boolean checked;
+    
     public PastRecordsGUI() {
         initComponents();
+        ConnectionHandler.updateConnection(wifiButton);
     }
 
     /**
@@ -32,30 +36,61 @@ public class PastRecordsGUI extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        searchtBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
         wifiButton = new javax.swing.JButton();
-        searchtBtn = new javax.swing.JButton();
+        docNameLbl = new javax.swing.JLabel();
+        paNameLbl = new javax.swing.JLabel();
+        paNameLbl1 = new javax.swing.JLabel();
+        docNameLbl1 = new javax.swing.JLabel();
+        docIdLbl = new javax.swing.JLabel();
+        docIdLbl1 = new javax.swing.JLabel();
+        medLabel = new javax.swing.JLabel();
+        desLbl = new javax.swing.JLabel();
+        dateLbl = new javax.swing.JLabel();
+        dateLbl1 = new javax.swing.JLabel();
+        paIdLbl = new javax.swing.JLabel();
+        paNicText = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        desText = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        medText = new javax.swing.JTextArea();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(102, 141, 243));
 
-        jLabel1.setFont(new java.awt.Font("Sinhala-Lasitha5", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Buxton Sketch", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 39, 97));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("PAST");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel2.setFont(new java.awt.Font("Sinhala-Lasitha5", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Buxton Sketch", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 39, 97));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("RECORDS");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/record.png"))); // NOI18N
+
+        searchtBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/search1.png"))); // NOI18N
+        searchtBtn.setBorder(null);
+        searchtBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                searchtBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                searchtBtnMouseExited(evt);
+            }
+        });
+        searchtBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchtBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -70,7 +105,11 @@ public class PastRecordsGUI extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(searchtBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,7 +120,9 @@ public class PastRecordsGUI extends javax.swing.JPanel {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(122, 122, 122)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                .addComponent(searchtBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
 
         backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/backButton.png"))); // NOI18N
@@ -124,18 +165,54 @@ public class PastRecordsGUI extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextField1.setText("jTextField1");
-
         wifiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/Wifi-Error.png"))); // NOI18N
         wifiButton.setBorder(null);
 
-        searchtBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/searchbutton.png"))); // NOI18N
-        searchtBtn.setBorder(null);
-        searchtBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchtBtnActionPerformed(evt);
+        docNameLbl.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        docNameLbl.setText("NAME OF DOCTOR");
+
+        paNameLbl.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        paNameLbl.setText("NAME OF PATIENT");
+
+        paNameLbl1.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+
+        docNameLbl1.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+
+        docIdLbl.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        docIdLbl.setText("NIC OF DOCTOR");
+
+        docIdLbl1.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+
+        medLabel.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        medLabel.setText("MEDICINE");
+
+        desLbl.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        desLbl.setText("DESCRIPTION");
+
+        dateLbl.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        dateLbl.setText("DATE");
+
+        dateLbl1.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+
+        paIdLbl.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        paIdLbl.setText("NIC OF PATIENT");
+
+        paNicText.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        paNicText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                paNicTextMouseEntered(evt);
             }
         });
+
+        desText.setColumns(20);
+        desText.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        desText.setRows(5);
+        jScrollPane1.setViewportView(desText);
+
+        medText.setColumns(20);
+        medText.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        medText.setRows(5);
+        jScrollPane2.setViewportView(medText);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -143,25 +220,50 @@ public class PastRecordsGUI extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(67, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(517, 517, 517)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
                                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(wifiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(searchtBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)))
+                                .addComponent(wifiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(8, 94, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(paNameLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(docNameLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(paNameLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(docNameLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)))
+                                    .addComponent(medLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE))
+                                .addGap(25, 25, 25)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(paIdLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(paNicText))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(dateLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                                            .addComponent(docIdLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(docIdLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                                            .addComponent(dateLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(desLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE))
+                                .addGap(60, 60, 60)))))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addGap(69, 69, 69))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,13 +272,39 @@ public class PastRecordsGUI extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(backBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(wifiButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
+                .addGap(37, 37, 37)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(docIdLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dateLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(docIdLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(dateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(docNameLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(docNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(paNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(paNameLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(medLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(desLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(searchtBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(paNicText)
+                    .addComponent(paIdLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -184,9 +312,7 @@ public class PastRecordsGUI extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,19 +323,77 @@ public class PastRecordsGUI extends javax.swing.JPanel {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         if(evt.getSource()== backBtn){
             HospitalManagementSystem.update(this ,new ReceptionInterface());
+            
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void searchtBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchtBtnActionPerformed
         if (evt.getSource() == searchtBtn) {
+            checked = true;
             ConnectionHandler.updateConnection(wifiButton);
+            
+            paNameLbl1.removeAll();
+            docNameLbl1.removeAll();
+            docIdLbl1.removeAll();
+            dateLbl1.removeAll();
+            desText.removeAll();
+            medText.removeAll();
+            
+            String paNic = paNicText.getText().toLowerCase();
+            if(paNic.equals("")){
+                paNicText.setBackground(Color.LIGHT_GRAY);
+            } else {
+                PastRecords obj = new PastRecords();
+                if (obj.validateID(paNicText, paNic)) {
+                    try {
+                        ResultSet result = obj.getPastRecords(paNic);
+                        while (result.next()) {
+                            docIdLbl1.setText(result.getString(2));
+                            paNameLbl1.setText(result.getString(3));
+                            dateLbl1.setText(result.getString(4));
+                            medText.setText(result.getString(5));
+                            desText.setText(result.getString(6));
 
+                        }
+                    } catch (SQLException | NullPointerException ex) {
+                    }
+                }
+            }
         }
     }//GEN-LAST:event_searchtBtnActionPerformed
+
+    private void searchtBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchtBtnMouseEntered
+        if (evt.getSource() == searchtBtn) {
+            searchtBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/search2.png")));
+        }
+    }//GEN-LAST:event_searchtBtnMouseEntered
+
+    private void searchtBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchtBtnMouseExited
+        if (evt.getSource() == searchtBtn) {
+            searchtBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/search1.png")));
+        }
+    }//GEN-LAST:event_searchtBtnMouseExited
+
+    private void paNicTextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paNicTextMouseEntered
+        if (evt.getSource() == paNicText && checked) {
+            paNicText.setForeground(Color.BLACK);
+            paNicText.setBackground(Color.WHITE);
+            paNicText.setText("");
+            checked = false;
+        }
+    }//GEN-LAST:event_paNicTextMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
+    private javax.swing.JLabel dateLbl;
+    private javax.swing.JLabel dateLbl1;
+    private javax.swing.JLabel desLbl;
+    private javax.swing.JTextArea desText;
+    private javax.swing.JLabel docIdLbl;
+    private javax.swing.JLabel docIdLbl1;
+    private javax.swing.JLabel docNameLbl;
+    private javax.swing.JLabel docNameLbl1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -217,7 +401,14 @@ public class PastRecordsGUI extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel medLabel;
+    private javax.swing.JTextArea medText;
+    private javax.swing.JLabel paIdLbl;
+    private javax.swing.JLabel paNameLbl;
+    private javax.swing.JLabel paNameLbl1;
+    private javax.swing.JTextField paNicText;
     private javax.swing.JButton searchtBtn;
     private javax.swing.JButton wifiButton;
     // End of variables declaration//GEN-END:variables

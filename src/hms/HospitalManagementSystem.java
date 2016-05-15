@@ -18,6 +18,7 @@ public class HospitalManagementSystem {
         frame.setBounds(0,0,1366, 768);
         frame.add(new LoginPageGUI());
         frame.setResizable(false);
+        frame.setAlwaysOnTop(true);
         frame.setTitle("Co-opearative Hospital Galle");
         frame.setVisible(true);
     }

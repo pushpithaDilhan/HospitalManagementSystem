@@ -429,7 +429,7 @@ public class DoctorHandlerGUI extends javax.swing.JPanel {
             if (docNameText.getText().equals("")) {
                 docNameText.setBackground(Color.lightGray);
             } else {
-                HospitalManagementSystem.update(this, new TimeSlotHandlerGUI());
+                //HospitalManagementSystem.update(this, new TimeSlotHandlerGUI());
             }
         }
     }//GEN-LAST:event_nextBtnActionPerformed

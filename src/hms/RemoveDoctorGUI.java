@@ -125,11 +125,7 @@ public class RemoveDoctorGUI extends javax.swing.JPanel {
             infoBox("No data entered!","Docctor nic needs to be filled!");
         }
         else{
-            try {
-                availability=new RemoveDoctor().searchAvailability(id);
-            } catch (SQLException ex) {
-                Logger.getLogger(RemoveDoctorGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            availability=new RemoveDoctor().searchAvailability(id);
         }
         this.permId=id;
         availabilityLbl.setText(availability);
