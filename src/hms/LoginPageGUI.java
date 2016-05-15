@@ -1,5 +1,6 @@
 package hms;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -279,22 +280,27 @@ public class LoginPageGUI extends javax.swing.JPanel {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         if (evt.getSource() == login) {
-            ConnectionHandler.updateConnection(wifiButton);
-            String employee = new LoginPage().validate(username.getText().trim(), String.valueOf(password.getPassword()).trim());
-            
-            if(employee == null){
-                JOptionPane.showMessageDialog(null, "Invalid Username or Password");
-                username.setText("");
-                password.setText("");
-            }else if(employee.equals("reception")){
-                HospitalManagementSystem.update(this ,new ReceptionInterface());
-                //this.setVisible(false);
-            }else if(employee.equals("doctor")){
-                try {
-                    HospitalManagementSystem.update(this ,new DoctorGUI());
-                } catch (SQLException ex) {
-                    Logger.getLogger(LoginPageGUI.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                ConnectionHandler.updateConnection(wifiButton);
+                Security s = new Security();
+                String employee = new LoginPage().validate(username.getText().trim(), s.hash(String.valueOf(password.getPassword()).trim()));
+                
+                if(employee == null){
+                    JOptionPane.showMessageDialog(null, "Invalid Username or Password");
+                    username.setText("");
+                    password.setText("");
+                }else if(employee.equals("reception")){
+                    HospitalManagementSystem.update(this ,new ReceptionInterface());
+                    //this.setVisible(false);
+                }else if(employee.equals("doctor")){
+                    try {
+                        HospitalManagementSystem.update(this ,new DoctorGUI());
+                    } catch (SQLException ex) {
+                        Logger.getLogger(LoginPageGUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(LoginPageGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
             
         }
