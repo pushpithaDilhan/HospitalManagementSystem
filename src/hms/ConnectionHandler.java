@@ -6,9 +6,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JButton;
+import org.apache.log4j.*;
 
 public class ConnectionHandler {
     
+    private static final Logger logger = Logger.getLogger(ConnectionHandler.class.getName());
     
     private static Connection con;
     private static boolean breakCon = true;
@@ -16,12 +18,21 @@ public class ConnectionHandler {
     private ConnectionHandler(){ //Use Singleton design pattern to make sure that unique Connection object will create.
         try {
             Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException ex) {}
+        } catch (ClassNotFoundException ex) {
+            logger.error("ClassNotFoundException in ConnectionHandler constructor.");
+        }
         try {
             con = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/gallecoop?useSSL=false", "pushpedilhan","gallecoop");
-            System.out.println("new DB");
+            //System.out.println("new DB");
+            
+            if (logger.isInfoEnabled()){
+                logger.info("New connection created.");
+            }
+            
             breakCon = false;
-        } catch (SQLException ex) {}
+        } catch (SQLException ex) {
+            logger.error("SQL exception.");
+        }
     }
     
     public static Connection conToDB(){// return/create Connection object.
@@ -42,12 +53,18 @@ public class ConnectionHandler {
                 status = true;
             }
         } catch (Exception e) {
+            
+            if (logger.isInfoEnabled()){
+                logger.info("Connection is broken");
+            }
+            
             con = null;
             breakCon = true;
         } finally {
             try {
                 sock.close();
             } catch (Exception e) {
+                logger.error("Exception in ConnHandler.isConnected() : "+ e);
             }
         }
         return status;

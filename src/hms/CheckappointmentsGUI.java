@@ -10,19 +10,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+import org.apache.log4j.*;
 
 /**
  *
  * @author HP
  */
 public class CheckappointmentsGUI extends javax.swing.JPanel {
-    
+
+    private static final Logger logger = Logger.getLogger(CheckappointmentsGUI.class.getName());
+
     private String docId;
     private int day = -1;
     private String docName;
-    
-    public CheckappointmentsGUI(String docName , String docId) {
+
+    public CheckappointmentsGUI(String docName, String docId) {
         initComponents();
+
+        if (logger.isInfoEnabled()) {
+            logger.info("CheckappointmentsGUI created.");
+        }
+
         ConnectionHandler.updateConnection(wifiButton);//check for internet connection
         this.docId = docId;
         this.docName = docName;
@@ -347,8 +355,8 @@ public class CheckappointmentsGUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backtBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backtBtnActionPerformed
-        if(evt.getSource()== backtBtn){
-            HospitalManagementSystem.update(this,new DoctorInterface(docName,docId));
+        if (evt.getSource() == backtBtn) {
+            HospitalManagementSystem.update(this, new DoctorInterface(docName, docId));
         }
     }//GEN-LAST:event_backtBtnActionPerformed
 
@@ -357,31 +365,36 @@ public class CheckappointmentsGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_timeListActionPerformed
 
     private void searchBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBtnMouseEntered
-        if(evt.getSource()== searchBtn){
+        if (evt.getSource() == searchBtn) {
             searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/search2.png")));
         }
     }//GEN-LAST:event_searchBtnMouseEntered
 
     private void searchBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBtnMouseExited
-        if(evt.getSource()== searchBtn){
+        if (evt.getSource() == searchBtn) {
             searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/search1.png")));
         }
     }//GEN-LAST:event_searchBtnMouseExited
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        if(evt.getSource()== searchBtn){
+        if (evt.getSource() == searchBtn) {
             paIdList.removeAll();   //clear lists
             timeList.removeAll();
-            if(day == -1){
+            if (day == -1) {
                 JOptionPane.showMessageDialog(null, "Please select a day."); //if day not selected.
-            }else{
-                ResultSet result = new CheckAppointments().check(docId.trim() , day);
+            } else {
+                ResultSet result = new CheckAppointments().check(docId.trim(), day);
                 try {
                     String code = null;
-                    while(result.next()){
+                    while (result.next()) {
                         code = result.getString(1);
                     }
-                    System.out.println(code);
+//                    System.out.println(code);
+
+                    if (logger.isDebugEnabled()) {
+                        logger.debug("Code : " + code);
+                    }
+
                     if (code == null) {                     //Check for valid working day
                         paIdList.setForeground(Color.red);
                         paIdList.add("Not a working day.");
@@ -393,9 +406,9 @@ public class CheckappointmentsGUI extends javax.swing.JPanel {
                         paIdList.setForeground(Color.BLACK);
                         while (code.length() >= 14 * (cou + 1)) {
                             String subCode = code.substring(2).substring(14 * (cou), 14 * (cou + 1)); //split patient nic and time from code
-                            paIdList.add(subCode.substring(0,10).toUpperCase());         //add patient nic and time to
+                            paIdList.add(subCode.substring(0, 10).toUpperCase());         //add patient nic and time to
                             String time = subCode.substring(10);
-                            timeList.add(time.substring(0,2)+":"+time.substring(2));
+                            timeList.add(time.substring(0, 2) + ":" + time.substring(2));
                             cou++;
                         }
                     }
@@ -406,59 +419,60 @@ public class CheckappointmentsGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void day0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_day0ActionPerformed
-        if(evt.getSource()== day0 ){
-            setValue(day0 , 0);
+        if (evt.getSource() == day0) {
+            setValue(day0, 0);
         }
     }//GEN-LAST:event_day0ActionPerformed
 
     private void day1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_day1ActionPerformed
-        if(evt.getSource()== day1 ){
-            setValue(day1 , 1);
+        if (evt.getSource() == day1) {
+            setValue(day1, 1);
         }
     }//GEN-LAST:event_day1ActionPerformed
 
     private void day2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_day2ActionPerformed
-        if(evt.getSource()== day2 ){
-            setValue(day2 , 2);
+        if (evt.getSource() == day2) {
+            setValue(day2, 2);
         }
     }//GEN-LAST:event_day2ActionPerformed
 
     private void day3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_day3ActionPerformed
-        if(evt.getSource()== day3 ){
-            setValue(day3 , 3);
+        if (evt.getSource() == day3) {
+            setValue(day3, 3);
         }
     }//GEN-LAST:event_day3ActionPerformed
 
     private void day4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_day4ActionPerformed
-        if(evt.getSource()== day4 ){
-            setValue(day4 , 4);
+        if (evt.getSource() == day4) {
+            setValue(day4, 4);
         }
     }//GEN-LAST:event_day4ActionPerformed
 
     private void day5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_day5ActionPerformed
-        if(evt.getSource()== day5 ){
-            setValue(day5 , 5);
+        if (evt.getSource() == day5) {
+            setValue(day5, 5);
         }
     }//GEN-LAST:event_day5ActionPerformed
 
     private void day6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_day6ActionPerformed
-        if(evt.getSource()== day6 ){
-            setValue(day6 , 6);
+        if (evt.getSource() == day6) {
+            setValue(day6, 6);
         }
     }//GEN-LAST:event_day6ActionPerformed
-    
-    private void clear(JCheckBox btn){ //chose only one check box
-        JCheckBox[] list = {day0,day1,day2,day3,day4,day5,day6};
-        for(JCheckBox Btn:list){
-            if(Btn.equals(btn)){
+
+    private void clear(JCheckBox btn) { //chose only one check box
+        JCheckBox[] list = {day0, day1, day2, day3, day4, day5, day6};
+        for (JCheckBox Btn : list) {
+            if (Btn.equals(btn)) {
                 Btn.setSelected(true);
-            }else{
+            } else {
                 Btn.setSelected(false);
             }
-        }repaint();
+        }
+        repaint();
     }
-    
-    private void setValue(JCheckBox btn ,int index){ //assign value to day
+
+    private void setValue(JCheckBox btn, int index) { //assign value to day
         if (btn.isSelected()) {
             day = index;
         }

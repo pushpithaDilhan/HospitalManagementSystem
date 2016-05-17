@@ -10,6 +10,8 @@ import java.util.logging.Logger;
  * @author HP
  */
 public class DoctorAvailabilityGUI extends javax.swing.JPanel {
+    
+    
 
     /**
      * Creates new form DoctorAvailabilityGUI

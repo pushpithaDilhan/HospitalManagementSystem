@@ -7,6 +7,7 @@ package hms;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.apache.log4j.*;
 
 /**
  *
@@ -14,9 +15,15 @@ import java.sql.SQLException;
  */
 public class AdminInterface extends javax.swing.JPanel {
 
-    
+    private static final Logger logger = Logger.getLogger(AdminInterface.class.getName());
+
     public AdminInterface() {
         initComponents();
+
+        if (logger.isInfoEnabled()) {
+            logger.info("AdminInterface created.");
+        }
+
         ConnectionHandler.updateConnection(wifiButton);
         yesBtn.setVisible(false);
         noBtn.setVisible(false);
@@ -234,8 +241,8 @@ public class AdminInterface extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void yesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesBtnActionPerformed
-        if(evt.getSource()== yesBtn){
-            HospitalManagementSystem.update(this ,new LoginPageGUI());
+        if (evt.getSource() == yesBtn) {
+            HospitalManagementSystem.update(this, new LoginPageGUI());
         }
     }//GEN-LAST:event_yesBtnActionPerformed
 
@@ -248,55 +255,58 @@ public class AdminInterface extends javax.swing.JPanel {
     }//GEN-LAST:event_noBtnActionPerformed
 
     private void viewPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPatientActionPerformed
-        if(evt.getSource()== viewPatient){
+        if (evt.getSource() == viewPatient) {
             idList.removeAll();
             nameList.removeAll();
             ConnectionHandler.updateConnection(wifiButton);
             try {
                 ResultSet result = new Admin().viewPatientDetails();
-                while(result.next()){
+                while (result.next()) {
                     idList.add(result.getString(1));
                     nameList.add(result.getString(2));
                 }
+            } catch (SQLException | NullPointerException ex) {
+                logger.error("SQL or NullPointer in AdminInterface.viewPatient()");
             }
-            catch(SQLException | NullPointerException ex) {}
         }
     }//GEN-LAST:event_viewPatientActionPerformed
 
     private void viewDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDoctorsActionPerformed
-        if(evt.getSource()== viewDoctors){
+        if (evt.getSource() == viewDoctors) {
             idList.removeAll();
             nameList.removeAll();
             ConnectionHandler.updateConnection(wifiButton);
             try {
                 ResultSet result = new Admin().viewDoctorDetails();
-                while(result.next()){
+                while (result.next()) {
                     idList.add(result.getString(1));
                     nameList.add(result.getString(2));
                 }
+            } catch (SQLException | NullPointerException ex) {
+                logger.error("SQL or NullPointer in AdminInterface.viewDoctor()");
             }
-            catch(SQLException | NullPointerException ex) {}
         }
     }//GEN-LAST:event_viewDoctorsActionPerformed
 
     private void viewEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEmployeeActionPerformed
-        if(evt.getSource()== viewEmployee){
+        if (evt.getSource() == viewEmployee) {
             idList.removeAll();
             nameList.removeAll();
             ConnectionHandler.updateConnection(wifiButton);
             try {
                 ResultSet result = new Admin().viewEmployeeDetails();
-                while(result.next()){
+                while (result.next()) {
                     idList.add(result.getString(1));
                     nameList.add(result.getString(2));
                 }
+            } catch (SQLException | NullPointerException ex) {
+                logger.error("SQL or NullPointer in AdminInterface.viewEmployee()");
             }
-            catch(SQLException | NullPointerException ex) {}
         }
     }//GEN-LAST:event_viewEmployeeActionPerformed
 
     private void signOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutBtnActionPerformed
-        if(evt.getSource()== signOutBtn){
+        if (evt.getSource() == signOutBtn) {
             yesBtn.setVisible(true);
             noBtn.setVisible(true);
             logOffText.setVisible(true);
