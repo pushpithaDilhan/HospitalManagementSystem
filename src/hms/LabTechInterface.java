@@ -19,7 +19,7 @@ public class LabTechInterface extends javax.swing.JPanel {
      */
     public LabTechInterface() {
         initComponents();
-        
+        ConnectionHandler.updateConnection(wifiButton);
         logOff.setVisible(false);
         cancel.setVisible(false);
         logOffText.setVisible(false);
@@ -34,6 +34,7 @@ public class LabTechInterface extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         logOff = new javax.swing.JButton();
@@ -42,6 +43,7 @@ public class LabTechInterface extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnView = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -55,6 +57,8 @@ public class LabTechInterface extends javax.swing.JPanel {
         resultList = new java.awt.List();
         TimeList = new java.awt.List();
         jLabel5 = new javax.swing.JLabel();
+
+        jLabel8.setText("jLabel8");
 
         setPreferredSize(new java.awt.Dimension(1366, 768));
 
@@ -96,14 +100,25 @@ public class LabTechInterface extends javax.swing.JPanel {
 
         logOffText.setFont(new java.awt.Font("Buxton Sketch", 1, 30)); // NOI18N
         logOffText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logOffText.setText("LOGOFF FROM SYSTEM?");
+        logOffText.setText("LOGOUT FROM SYSTEM?");
 
-        btnView.setText("View Time Slots");
+        btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/search1.png"))); // NOI18N
+        btnView.setBorder(null);
+        btnView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnViewMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnViewMouseExited(evt);
+            }
+        });
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/lab.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -120,13 +135,14 @@ public class LabTechInterface extends javax.swing.JPanel {
                                     .addGap(71, 71, 71)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(logOff, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(logOff, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(114, 114, 114))))
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +157,9 @@ public class LabTechInterface extends javax.swing.JPanel {
                 .addComponent(logOff, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(106, 106, 106)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
                 .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
         );
@@ -151,8 +169,9 @@ public class LabTechInterface extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(102, 97, 225));
 
         jLabel2.setBackground(new java.awt.Color(77, 38, 249));
-        jLabel2.setFont(new java.awt.Font("Buxton Sketch", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Buxton Sketch", 1, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel2.setText("CO-OPERATIVE HOSPITAL GALLE ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -199,28 +218,30 @@ public class LabTechInterface extends javax.swing.JPanel {
         wifiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/Wifi-Error.png"))); // NOI18N
         wifiButton.setBorder(null);
 
-        jLabel3.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        jDateChooser1.setFont(new java.awt.Font("Buxton Sketch", 1, 20)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Buxton Sketch", 1, 22)); // NOI18N
         jLabel3.setText("DATE");
 
-        jLabel1.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Buxton Sketch", 1, 22)); // NOI18N
         jLabel1.setText("TEST CATEGORY");
 
-        cmbCategory.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        cmbCategory.setFont(new java.awt.Font("Buxton Sketch", 1, 22)); // NOI18N
         cmbCategory.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CT SCAN", "ECG", "ECHO CARDIAGRAME TEST", "ENDOSCOPY / COLONOSCOPY", "EXERCISE ECG TEST", "X-RAY", "ULTRA SOUND DOPPER SCAN" }));
 
-        jLabel4.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Buxton Sketch", 1, 22)); // NOI18N
         jLabel4.setText("TIME SLOT");
 
-        resultList.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        resultList.setFont(new java.awt.Font("Buxton Sketch", 1, 22)); // NOI18N
 
-        TimeList.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        TimeList.setFont(new java.awt.Font("Buxton Sketch", 1, 22)); // NOI18N
         TimeList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TimeListActionPerformed(evt);
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Buxton Sketch", 1, 22)); // NOI18N
         jLabel5.setText("NAME OF PATIENT");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -241,12 +262,12 @@ public class LabTechInterface extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(resultList, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TimeList, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -285,9 +306,9 @@ public class LabTechInterface extends javax.swing.JPanel {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TimeList, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                    .addComponent(TimeList, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
                     .addComponent(resultList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -390,6 +411,18 @@ public class LabTechInterface extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_TimeListActionPerformed
 
+    private void btnViewMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewMouseEntered
+        if(evt.getSource()== btnView){
+            btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/search2.png")));
+        }
+    }//GEN-LAST:event_btnViewMouseEntered
+
+    private void btnViewMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewMouseExited
+        if(evt.getSource()== btnView){
+            btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/search1.png")));
+        }
+    }//GEN-LAST:event_btnViewMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.List TimeList;
@@ -404,6 +437,8 @@ public class LabTechInterface extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -42,8 +42,6 @@ public class AddRecords {
         } catch (SQLException | NullPointerException ex) {}
     }
     
-    
-    
     public java.sql.Date convert(java.util.Date date) {
         return new java.sql.Date(date.getTime());
     }

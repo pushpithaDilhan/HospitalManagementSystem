@@ -37,10 +37,9 @@ public class AdminInterface extends javax.swing.JPanel {
         yesBtn = new javax.swing.JButton();
         noBtn = new javax.swing.JButton();
         logOffText = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        pastReBtn = new javax.swing.JButton();
-        chargersBtn = new javax.swing.JButton();
         viewPatient = new javax.swing.JButton();
         viewDoctors = new javax.swing.JButton();
         viewEmployee = new javax.swing.JButton();
@@ -54,7 +53,7 @@ public class AdminInterface extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(102, 141, 243));
         jPanel3.setPreferredSize(new java.awt.Dimension(379, 768));
 
-        yesBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/logoffbutton.png"))); // NOI18N
+        yesBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/logOff1.png"))); // NOI18N
         yesBtn.setBorder(null);
         yesBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +61,7 @@ public class AdminInterface extends javax.swing.JPanel {
             }
         });
 
-        noBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/cancelbutton.png"))); // NOI18N
+        noBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/cancel1.png"))); // NOI18N
         noBtn.setBorder(null);
         noBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +72,8 @@ public class AdminInterface extends javax.swing.JPanel {
         logOffText.setFont(new java.awt.Font("Sinhala-Lasitha5", 1, 24)); // NOI18N
         logOffText.setForeground(new java.awt.Color(0, 39, 97));
         logOffText.setText("LOGOFF FROM SYSTEM?");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/admin.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -88,6 +89,10 @@ public class AdminInterface extends javax.swing.JPanel {
                             .addComponent(noBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(yesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(40, 40, 40))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,34 +103,26 @@ public class AdminInterface extends javax.swing.JPanel {
                 .addComponent(yesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(noBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(152, 152, 152)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(186, Short.MAX_VALUE))
         );
 
         jPanel5.setBackground(new java.awt.Color(102, 141, 243));
 
         jPanel2.setBackground(new java.awt.Color(102, 97, 225));
 
-        pastReBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        pastReBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/Recordsbutton.png"))); // NOI18N
-        pastReBtn.setBorder(null);
-        pastReBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pastReBtnActionPerformed(evt);
-            }
-        });
-
-        chargersBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        chargersBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/Chargersbutton.png"))); // NOI18N
-        chargersBtn.setBorder(null);
-        chargersBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chargersBtnActionPerformed(evt);
-            }
-        });
-
         viewPatient.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        viewPatient.setText("Patient Details");
+        viewPatient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/patient1.png"))); // NOI18N
         viewPatient.setBorder(null);
+        viewPatient.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                viewPatientMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                viewPatientMouseExited(evt);
+            }
+        });
         viewPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewPatientActionPerformed(evt);
@@ -133,16 +130,32 @@ public class AdminInterface extends javax.swing.JPanel {
         });
 
         viewDoctors.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        viewDoctors.setText("Doctor details");
+        viewDoctors.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/doc1.png"))); // NOI18N
         viewDoctors.setBorder(null);
+        viewDoctors.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                viewDoctorsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                viewDoctorsMouseExited(evt);
+            }
+        });
         viewDoctors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewDoctorsActionPerformed(evt);
             }
         });
 
-        viewEmployee.setText("Employee Details");
+        viewEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/emp1.png"))); // NOI18N
         viewEmployee.setBorder(null);
+        viewEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                viewEmployeeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                viewEmployeeMouseExited(evt);
+            }
+        });
         viewEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewEmployeeActionPerformed(evt);
@@ -156,15 +169,11 @@ public class AdminInterface extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(viewDoctors, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(viewPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(viewEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(chargersBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pastReBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(19, 19, 19)
+                .addComponent(viewPatient)
+                .addGap(19, 19, 19)
+                .addComponent(viewEmployee)
+                .addGap(346, 346, 346))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,9 +182,6 @@ public class AdminInterface extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(viewPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(viewDoctors, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(pastReBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(chargersBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(viewEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(29, 29, 29))
         );
@@ -208,6 +214,10 @@ public class AdminInterface extends javax.swing.JPanel {
         wifiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/Wifi-Error.png"))); // NOI18N
         wifiButton.setBorder(null);
 
+        idList.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+
+        nameList.setFont(new java.awt.Font("Buxton Sketch", 0, 22)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -217,7 +227,7 @@ public class AdminInterface extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(128, 128, 128)
                         .addComponent(idList, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
+                        .addGap(34, 34, 34)
                         .addComponent(nameList, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -242,9 +252,9 @@ public class AdminInterface extends javax.swing.JPanel {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(idList, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
-                    .addComponent(nameList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                    .addComponent(nameList, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+                    .addComponent(idList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -273,18 +283,6 @@ public class AdminInterface extends javax.swing.JPanel {
             logOffText.setVisible(false);
         }
     }//GEN-LAST:event_noBtnActionPerformed
-
-    private void pastReBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pastReBtnActionPerformed
-        if(evt.getSource() == pastReBtn){
-            HospitalManagementSystem.update(this ,new PastRecordsGUI());
-        }
-    }//GEN-LAST:event_pastReBtnActionPerformed
-
-    private void chargersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chargersBtnActionPerformed
-        if(evt.getSource() == chargersBtn){
-            HospitalManagementSystem.update(this ,new ServiceChargeGUI());
-        }
-    }//GEN-LAST:event_chargersBtnActionPerformed
 
     private void viewPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPatientActionPerformed
         if(evt.getSource()== viewPatient){
@@ -342,10 +340,46 @@ public class AdminInterface extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_signOutBtnActionPerformed
 
+    private void viewDoctorsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDoctorsMouseEntered
+        if(evt.getSource()== viewDoctors){
+            viewDoctors.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/doc2.png")));
+        }
+    }//GEN-LAST:event_viewDoctorsMouseEntered
+
+    private void viewDoctorsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDoctorsMouseExited
+        if(evt.getSource()== viewDoctors){
+            viewDoctors.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/doc1.png")));
+        }
+    }//GEN-LAST:event_viewDoctorsMouseExited
+
+    private void viewPatientMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewPatientMouseEntered
+        if(evt.getSource()== viewPatient){
+            viewPatient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/patient2.png")));
+        }
+    }//GEN-LAST:event_viewPatientMouseEntered
+
+    private void viewPatientMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewPatientMouseExited
+        if(evt.getSource()== viewPatient){
+            viewPatient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/patient1.png")));
+        }
+    }//GEN-LAST:event_viewPatientMouseExited
+
+    private void viewEmployeeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewEmployeeMouseEntered
+        if(evt.getSource()== viewEmployee){
+            viewEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/emp2.png")));
+        }
+    }//GEN-LAST:event_viewEmployeeMouseEntered
+
+    private void viewEmployeeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewEmployeeMouseExited
+        if(evt.getSource()== viewEmployee){
+            viewEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/emp1.png")));
+        }
+    }//GEN-LAST:event_viewEmployeeMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton chargersBtn;
     private java.awt.List idList;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -353,7 +387,6 @@ public class AdminInterface extends javax.swing.JPanel {
     private javax.swing.JLabel logOffText;
     private java.awt.List nameList;
     private javax.swing.JButton noBtn;
-    private javax.swing.JButton pastReBtn;
     private javax.swing.JButton signOutBtn;
     private javax.swing.JButton viewDoctors;
     private javax.swing.JButton viewEmployee;

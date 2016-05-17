@@ -1,5 +1,8 @@
 package hms;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -7,9 +10,11 @@ import javax.swing.JOptionPane;
  * @author HP
  */
 public class LoginPageGUI extends javax.swing.JPanel {
-    
+
     private static String logger;
-    
+    private static String name = null;
+    private static String id = null;
+
     public LoginPageGUI() {
         initComponents();
         ConnectionHandler.updateConnection(wifiButton);
@@ -30,7 +35,7 @@ public class LoginPageGUI extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        password = new javax.swing.JPasswordField();
+        passwordText = new javax.swing.JPasswordField();
         login = new javax.swing.JButton();
         logincancel = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -67,13 +72,21 @@ public class LoginPageGUI extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(60, 197, 244));
         jLabel3.setText("PASSWORD");
 
-        password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        passwordText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         login.setBackground(new java.awt.Color(255, 255, 255));
         login.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/LogInbutton.png"))); // NOI18N
+        login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/login1.png"))); // NOI18N
         login.setAlignmentY(1.0F);
         login.setBorder(null);
+        login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                loginMouseExited(evt);
+            }
+        });
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
@@ -82,8 +95,16 @@ public class LoginPageGUI extends javax.swing.JPanel {
 
         logincancel.setBackground(new java.awt.Color(255, 255, 255));
         logincancel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        logincancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/Exitbutton.png"))); // NOI18N
+        logincancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/exit1.png"))); // NOI18N
         logincancel.setBorder(null);
+        logincancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logincancelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logincancelMouseExited(evt);
+            }
+        });
         logincancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logincancelActionPerformed(evt);
@@ -98,7 +119,7 @@ public class LoginPageGUI extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordText, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -117,7 +138,7 @@ public class LoginPageGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordText, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -277,32 +298,96 @@ public class LoginPageGUI extends javax.swing.JPanel {
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         if (evt.getSource() == login) {
             ConnectionHandler.updateConnection(wifiButton);
-            String employee = new LoginPage().validate(username.getText().trim(), String.valueOf(password.getPassword()).trim());
-            if(employee == null){
+
+            String userName = username.getText().trim();            //get Inputs
+            String password = passwordText.getText();
+            Security obj = new Security();
+            String hashedUserName = obj.hash(userName);
+            String hashedPassword = obj.hash(password);
+            ResultSet result = new LoginPage().validate(); //Search in database
+            String employee = null;
+            
+            try {
+                while (result.next()) {
+                    if (result.getString(3).equals(hashedUserName) && result.getString(4).equals(hashedPassword)) {
+                        employee = result.getString(1);
+                        name = result.getString(2);
+                        break;
+                    }
+                }
+                
+                if (employee.equals("Doctor")) {
+                    PreparedStatement state = ConnectionHandler.conToDB().prepareStatement("SELECT nic FROM doctor WHERE name = '" + name + "'");
+                    ResultSet result2 = state.executeQuery();
+                    while (result2.next()) {
+                        id = result2.getString(1);
+                    }
+                    logger = "Doctor";
+                    HospitalManagementSystem.update(this, new DoctorInterface(name, id));
+                }
+            } catch (SQLException | NullPointerException ex) {}
+
+            if (employee == null) {
                 JOptionPane.showMessageDialog(null, "Invalid Username or Password");
                 username.setText("");
-                password.setText("");
-            }else if(employee.equals("reception")){
-                logger = "reception";
-                HospitalManagementSystem.update(this ,new ReceptionInterface());
-            }else if(employee.equals("admin")){
-                logger = "admin";
-                HospitalManagementSystem.update(this ,new AdminInterface());
-            }else if(employee.equals("HR")){
+                passwordText.setText("");
+            } else if (employee.equals("Reception")) {
+                logger = "Reception";
+                HospitalManagementSystem.update(this, new ReceptionInterface());
+            } else if (employee.equals("Admin")) {
+                logger = "Admin";
+                HospitalManagementSystem.update(this, new AdminInterface());
+            } else if (employee.equals("HR")) {
                 logger = "HR";
-                HospitalManagementSystem.update(this ,new HRStaffInterface());
+                HospitalManagementSystem.update(this, new HRStaffInterface());
+            }else if (employee.equals("Lab Technician")) {
+                logger = "Lab Technician";
+                HospitalManagementSystem.update(this, new LabTechInterface());
             }
+            
         }
     }//GEN-LAST:event_loginActionPerformed
 
     private void logincancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logincancelActionPerformed
-        if(evt.getSource()==logincancel){
+        if (evt.getSource() == logincancel) {
             System.exit(0);
         }
     }//GEN-LAST:event_logincancelActionPerformed
-    
-    public String getLogger(){
+
+    private void loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseEntered
+        if(evt.getSource()== login){
+            login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/login2.png")));
+        }
+    }//GEN-LAST:event_loginMouseEntered
+
+    private void loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseExited
+        if(evt.getSource()== login){
+            login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/login1.png")));
+        }
+    }//GEN-LAST:event_loginMouseExited
+
+    private void logincancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logincancelMouseEntered
+        if(evt.getSource()== logincancel){
+            logincancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/exit2.png")));
+        }
+    }//GEN-LAST:event_logincancelMouseEntered
+
+    private void logincancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logincancelMouseExited
+        if(evt.getSource()== logincancel){
+            logincancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/exit1.png")));
+        }
+    }//GEN-LAST:event_logincancelMouseExited
+
+    public String getLogger() {
         return logger;
+    }
+    
+    public String getName() {
+        return name;
+    }
+     
+    public String getId() {
+        return id;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -320,7 +405,7 @@ public class LoginPageGUI extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JButton login;
     private javax.swing.JButton logincancel;
-    private javax.swing.JPasswordField password;
+    private javax.swing.JPasswordField passwordText;
     private javax.swing.JTextField username;
     private javax.swing.JButton wifiButton;
     // End of variables declaration//GEN-END:variables

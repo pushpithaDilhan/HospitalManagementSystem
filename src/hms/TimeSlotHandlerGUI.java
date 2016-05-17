@@ -111,11 +111,21 @@ public class TimeSlotHandlerGUI extends javax.swing.JPanel {
         titleLbl2.setText("APPOINTMENT");
         titleLbl2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/record.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/makeApp.png"))); // NOI18N
 
         channelBtn.setBackground(new java.awt.Color(0, 102, 102));
         channelBtn.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
         channelBtn.setForeground(new java.awt.Color(231, 252, 252));
+        channelBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/add1.png"))); // NOI18N
+        channelBtn.setPreferredSize(new java.awt.Dimension(150, 40));
+        channelBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                channelBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                channelBtnMouseExited(evt);
+            }
+        });
         channelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 channelBtnActionPerformed(evt);
@@ -133,14 +143,13 @@ public class TimeSlotHandlerGUI extends javax.swing.JPanel {
                     .addComponent(titleLbl2, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE))
                 .addGap(21, 21, 21))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(channelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(115, 115, 115)
+                .addComponent(channelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,8 +158,8 @@ public class TimeSlotHandlerGUI extends javax.swing.JPanel {
                 .addComponent(titleLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(titleLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(channelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78))
@@ -340,6 +349,18 @@ public class TimeSlotHandlerGUI extends javax.swing.JPanel {
             checked = false;
         }
     }//GEN-LAST:event_nicTextFieldMouseEntered
+
+    private void channelBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_channelBtnMouseEntered
+        if(evt.getSource()== channelBtn){
+            channelBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/add2.png")));
+        }
+    }//GEN-LAST:event_channelBtnMouseEntered
+
+    private void channelBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_channelBtnMouseExited
+        if(evt.getSource()== channelBtn){
+            channelBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/add1.png")));
+        }
+    }//GEN-LAST:event_channelBtnMouseExited
     
     
 
