@@ -5,17 +5,26 @@
  */
 package hms;
 
+import org.apache.log4j.*;
+
 /**
  *
  * @author HP
  */
 public class HRStaffInterface extends javax.swing.JPanel {
+    
+    private static final Logger logger = Logger.getLogger(HRStaffInterface.class.getName());
 
     /**
      * Creates new form HRStaffInterface
      */
     public HRStaffInterface() {
         initComponents();
+        
+        if (logger.isInfoEnabled()){
+            logger.info("HRStaffInterface created.");
+        }
+        
         ConnectionHandler.updateConnection(wifiButton);
         logOff.setVisible(false);
         cancel.setVisible(false);

@@ -1,5 +1,7 @@
 package hms;
 
+import org.apache.log4j.*;
+
 
 /**
  *
@@ -7,12 +9,21 @@ package hms;
  */
 public class DoctorInterface extends javax.swing.JPanel {
     
+    private static final Logger logger = Logger.getLogger(DoctorInterface.class.getName());
+    
     private String docName;
     private String docId;
     private int day = -1;
     
     public DoctorInterface(String docName , String docId) {
         initComponents();
+        
+        if (logger.isInfoEnabled()){
+            logger.info("DoctorInterface created.");
+            logger.info("Doctor name : " + docName);
+            logger.info("Doctor ID : " + docId);
+        }
+        
         ConnectionHandler.updateConnection(wifiButton);//check for internet connection
         this.docId = docId;
         this.docName = docName;

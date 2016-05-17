@@ -10,18 +10,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import org.apache.log4j.*;
 
 /**
  *
  * @author HP
  */
 public class LabTechInterface extends javax.swing.JPanel {
+    
+    private static final Logger logger = Logger.getLogger(LabTechInterface.class.getName());
 
     /**
      * Creates new form LabTechInterface
      */
     public LabTechInterface() {
         initComponents();
+        
+        if (logger.isInfoEnabled()){
+            logger.info("LabTechInterface created.");
+        }
         
         jDateChooser1.setDate(new Date());                                                      // set the date to today's date.
         JTextFieldDateEditor editor = (JTextFieldDateEditor) jDateChooser1.getDateEditor();     // editable false
@@ -368,13 +375,21 @@ public class LabTechInterface extends javax.swing.JPanel {
 
             int dateDifference = lt.getDateDifference(jDateChooser1.getDate());
             
-            System.out.println("date difference : " + dateDifference);
+            //System.out.println("date difference : " + dateDifference);
+            
+            if (logger.isDebugEnabled()){
+                logger.debug("Date difference : " + dateDifference);
+            }
 
             int index = cmbCategory.getSelectedIndex();                         // index of the selected category.
             lt.selectTimeDuration(index);
 
             if (dateDifference >= 0){
             int startingPatient = dateDifference * LabTechnician.selectedTimeSlots.length;
+            
+            if (logger.isDebugEnabled()){
+                logger.debug("Starting patient no : " + startingPatient);
+            }
 
             //ConnectionHandler.updateConnection(wifiButton);
             try {
@@ -392,7 +407,9 @@ public class LabTechInterface extends javax.swing.JPanel {
 
                 }
             } catch (SQLException | NullPointerException ex) {
+                logger.error("SQL or NullPointer : " + ex);
             }
+            
             }else {
                 JOptionPane.showMessageDialog(this, "Invalid date!");
             }
