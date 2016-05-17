@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -24,8 +26,8 @@ public class TimeSlotHandler {
             PreparedStatement state = ConnectionHandler.conToDB().prepareStatement("SELECT nic,schedule_code FROM doctor WHERE name = '" +docName+ "'");
             ResultSet result = state.executeQuery();
             while(result.next()){
-                docNic = result.getString(1);
-                startTime = result.getString(2).substring(6*day + 2 , 6*day + 6);
+                startTime = result.getString(2).substring(6*day + 2 , 6*day + 6);                docNic = result.getString(1);
+
             }
         } catch (SQLException ex) {}
         
@@ -38,32 +40,42 @@ public class TimeSlotHandler {
                 if(temp.substring(0,2).equals("00")){
                     return null;
                 }else if(temp.length() == 2){
+                    remTimeSlots = temp.substring(0,2);
+                    newTime = startTime;
                     return startTime + temp;
+                }else{
+                    detail = temp.substring(2);
+                    remTimeSlots = temp.substring(0,2);
                 }
-                detail = temp.substring(2);
-                remTimeSlots = temp.substring(0,2);
             }
             newTime = convertTime(detail.substring(detail.length()-4));
             return newTime + remTimeSlots ;//Time of latest time Slot and no of remaining time slots.
+            
         }catch (SQLException ex) {
             return null;
         } 
     }
     
     public void updateTimeSlot(String patientNic){
+        System.out.println(patientNic);
         try {
             String newReTiSlots= String.valueOf(Integer.parseInt(remTimeSlots)-1);
+            
             if(newReTiSlots.length() != 2){
                 newReTiSlots = "0" + newReTiSlots;
             }
-            detail = newReTiSlots + detail.substring(2);
-            
+            if(detail == null){
+                detail = newReTiSlots + patientNic + newTime;
+            }else{
+                detail = newReTiSlots + detail.substring(2)+ patientNic + newTime;
+            }
             Statement stat = ConnectionHandler.conToDB().createStatement();
-            stat.executeUpdate("UPDATE appointments SET "+convertDay(day).toLowerCase()+" = '"+detail+patientNic+newTime+"' WHERE doctorid = '" +docNic+ "'");
-                            
-        } catch (SQLException ex) {
+            stat.executeUpdate("UPDATE appointments SET "+convertDay(day).toLowerCase()+" = '"+detail+"' WHERE doctorid = '" +docNic+ "'");
+        } catch (SQLException | NullPointerException ex) {
             JOptionPane.showMessageDialog(null, "Channelling Failed."); 
+            Logger.getLogger(TimeSlotHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
     
     public String convertTime(String time){

@@ -33,68 +33,72 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="bdayLabel1" min="-2" pref="170" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="picLabel" alignment="1" pref="202" max="32767" attributes="0"/>
+                                          <Component id="nicLabel" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="bdayLabel" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="fnameLabel" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="picLabel1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="snameLabel" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="nicText" min="-2" pref="201" max="-2" attributes="0"/>
+                                          <Component id="pw1" min="-2" pref="201" max="-2" attributes="0"/>
+                                          <Component id="bdayDateChooser" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                                          <Component id="pw2" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                                          <Component id="snameText" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                                          <Component id="fnameText" min="-2" pref="201" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="statusLabel" pref="162" max="32767" attributes="0"/>
+                                          <Component id="genderjLabel" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="maStCombo" min="-2" pref="131" max="-2" attributes="0"/>
+                                          <Component id="genderCombo" min="-2" pref="131" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="bdayLabel1" min="-2" pref="179" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="regDateChooser" min="-2" pref="201" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="picLabel" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="nicLabel" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="bdayLabel" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="fnameLabel" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="picLabel1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="snameLabel" alignment="1" min="-2" pref="153" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="fnameText" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="snameText" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="nicText" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="bdayDateChooser" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="pw1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="pw2" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="statusLabel" pref="162" max="32767" attributes="0"/>
-                                              <Component id="genderjLabel" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="genderCombo" alignment="0" pref="0" max="32767" attributes="0"/>
-                                              <Component id="maStCombo" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="moileLabel" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <Component id="moileLabel1" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <Component id="emailLabel" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <Component id="addressLabel" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabel4" alignment="1" min="-2" pref="326" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="moileLabel" min="-2" pref="100" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Component id="emailLabel" min="-2" pref="100" max="-2" attributes="0"/>
+                                                      <Component id="addressLabel" min="-2" pref="100" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Component id="moileLabel1" min="-2" pref="100" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="emailText" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <Component id="addressText" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <Component id="mobileText" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <Component id="positionCB" min="-2" pref="200" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="mobileText" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="addressText" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="emailText" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="positionCB" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="jScrollPane1" min="-2" pref="326" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel4" min="-2" pref="335" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" pref="335" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="43" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="45" max="32767" attributes="0"/>
@@ -120,29 +124,25 @@
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="addressText" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="emailText" min="-2" pref="40" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Component id="addressLabel" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="emailLabel" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="mobileText" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="moileLabel1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="addressLabel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="addressText" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="emailLabel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="emailText" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="mobileText" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="moileLabel1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="moileLabel" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="positionCB" alignment="1" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="moileLabel" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="positionCB" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -167,17 +167,17 @@
                       </Group>
                   </Group>
               </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="picLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="pw1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="picLabel1" max="32767" attributes="0"/>
-                          <Component id="pw2" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="picLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pw2" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -192,17 +192,17 @@
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="bdayLabel1" max="32767" attributes="0"/>
-                          <Component id="regDateChooser" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="regDateChooser" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jLabel4" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="223" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
           </Group>
           <Component id="jPanel2" alignment="0" pref="768" max="32767" attributes="0"/>
       </Group>
@@ -372,6 +372,7 @@
       </Properties>
       <Events>
         <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="nicTextMouseMoved"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="nicTextMouseEntered"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="snameText">
@@ -459,6 +460,7 @@
       </Properties>
       <Events>
         <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="mobileTextMouseMoved"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mobileTextMouseEntered"/>
       </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel2">
@@ -510,7 +512,7 @@
                   <Component id="resetBtn" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="registertBtn" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -519,7 +521,7 @@
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Buxton Sketch" size="36" style="1"/>
+              <Font name="Buxton Sketch" size="40" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="61" green="27" red="0" type="rgb"/>
@@ -532,7 +534,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Buxton Sketch" size="36" style="1"/>
+              <Font name="Buxton Sketch" size="40" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="61" green="27" red="0" type="rgb"/>
@@ -636,6 +638,7 @@
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pw1MouseEntered"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pw1ActionPerformed"/>
       </Events>
     </Component>
@@ -645,6 +648,9 @@
           <Font name="Buxton Sketch" size="18" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pw2MouseEntered"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="picLabel1">
       <Properties>

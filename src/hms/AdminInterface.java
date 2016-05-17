@@ -39,8 +39,6 @@ public class AdminInterface extends javax.swing.JPanel {
         logOffText = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        pastReBtn = new javax.swing.JButton();
-        chargersBtn = new javax.swing.JButton();
         viewPatient = new javax.swing.JButton();
         viewDoctors = new javax.swing.JButton();
         viewEmployee = new javax.swing.JButton();
@@ -54,7 +52,7 @@ public class AdminInterface extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(102, 141, 243));
         jPanel3.setPreferredSize(new java.awt.Dimension(379, 768));
 
-        yesBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/logoffbutton.png"))); // NOI18N
+        yesBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/logOff1.png"))); // NOI18N
         yesBtn.setBorder(null);
         yesBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +60,7 @@ public class AdminInterface extends javax.swing.JPanel {
             }
         });
 
-        noBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/cancelbutton.png"))); // NOI18N
+        noBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/cancel1.png"))); // NOI18N
         noBtn.setBorder(null);
         noBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,24 +103,6 @@ public class AdminInterface extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(102, 97, 225));
 
-        pastReBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        pastReBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/Recordsbutton.png"))); // NOI18N
-        pastReBtn.setBorder(null);
-        pastReBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pastReBtnActionPerformed(evt);
-            }
-        });
-
-        chargersBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        chargersBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/Chargersbutton.png"))); // NOI18N
-        chargersBtn.setBorder(null);
-        chargersBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chargersBtnActionPerformed(evt);
-            }
-        });
-
         viewPatient.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         viewPatient.setText("Patient Details");
         viewPatient.setBorder(null);
@@ -160,11 +140,7 @@ public class AdminInterface extends javax.swing.JPanel {
                 .addComponent(viewPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(viewEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(chargersBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pastReBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(346, 346, 346))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,9 +149,6 @@ public class AdminInterface extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(viewPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(viewDoctors, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(pastReBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(chargersBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(viewEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(29, 29, 29))
         );
@@ -274,18 +247,6 @@ public class AdminInterface extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_noBtnActionPerformed
 
-    private void pastReBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pastReBtnActionPerformed
-        if(evt.getSource() == pastReBtn){
-            HospitalManagementSystem.update(this ,new PastRecordsGUI());
-        }
-    }//GEN-LAST:event_pastReBtnActionPerformed
-
-    private void chargersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chargersBtnActionPerformed
-        if(evt.getSource() == chargersBtn){
-            HospitalManagementSystem.update(this ,new ServiceChargeGUI());
-        }
-    }//GEN-LAST:event_chargersBtnActionPerformed
-
     private void viewPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPatientActionPerformed
         if(evt.getSource()== viewPatient){
             idList.removeAll();
@@ -344,7 +305,6 @@ public class AdminInterface extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton chargersBtn;
     private java.awt.List idList;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -353,7 +313,6 @@ public class AdminInterface extends javax.swing.JPanel {
     private javax.swing.JLabel logOffText;
     private java.awt.List nameList;
     private javax.swing.JButton noBtn;
-    private javax.swing.JButton pastReBtn;
     private javax.swing.JButton signOutBtn;
     private javax.swing.JButton viewDoctors;
     private javax.swing.JButton viewEmployee;

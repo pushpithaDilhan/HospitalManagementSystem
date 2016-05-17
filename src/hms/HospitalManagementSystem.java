@@ -1,15 +1,16 @@
 package hms;
 
-import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import org.apache.log4j.*;
 
 public class HospitalManagementSystem {
     
+    private static final Logger logger = Logger.getLogger(HospitalManagementSystem.class.getName());
+    
     private static JFrame frame;
     
-    
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         
         ConnectionHandler.conToDB();
         
@@ -17,9 +18,8 @@ public class HospitalManagementSystem {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(0,0,1366, 768);
         frame.add(new LoginPageGUI());
+        //frame.add(new ReceptionInterface());
         frame.setResizable(false);
-        frame.setAlwaysOnTop(true);
-        frame.setTitle("Co-opearative Hospital Galle");
         frame.setVisible(true);
     }
     

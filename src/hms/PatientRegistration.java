@@ -1,8 +1,6 @@
 package hms;
 
 import java.util.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -30,8 +28,8 @@ public class PatientRegistration {
             stat.executeUpdate("INSERT INTO patient(name,birthday,address,email,mobile,city,nic,pic,"
                                 +"gender,marital_state,date_of_regi,other) "
                                 +"VALUES ('"+name+"','"+convert(bday)+"','"+add+"','"+email+"','"
-                                +Integer.parseInt(mobile)+"','"+city+"','"
-                                +nic+"','"+Integer.parseInt(pic)+"','"+gender+"','"
+                                +mobile+"','"+city+"','"
+                                +nic+"','"+pic+"','"+gender+"','"
                                 +mstate+"','"+convert(regday)+"','"+other+"')");
             
             /*PreparedStatement state = new ConnectionHandler().getConnect().prepareStatement("SELECT name FROM doctor WHERE category = '" +cate+ "'");

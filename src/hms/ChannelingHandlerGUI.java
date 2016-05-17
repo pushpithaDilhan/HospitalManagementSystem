@@ -5,13 +5,19 @@ import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JRadioButton;
+import org.apache.log4j.*;
 
 public class ChannelingHandlerGUI extends javax.swing.JPanel {
+    
+    private static final Logger logger = Logger.getLogger(ChannelingHandlerGUI.class.getName());
 
     private int day = 0;
     private int cate = 0;
     
     public ChannelingHandlerGUI() {
+        
+        logger.error("First Error");
+        
         initComponents();
         ConnectionHandler.updateConnection(wifiButton);
         SundayButton.setSelected(true);
@@ -46,7 +52,7 @@ public class ChannelingHandlerGUI extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1366, 768));
 
-        docList.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        docList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         docList.setFont(new java.awt.Font("Buxton Sketch", 0, 24)); // NOI18N
         docList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -411,6 +417,7 @@ public class ChannelingHandlerGUI extends javax.swing.JPanel {
 
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
         if(evt.getSource()== nextBtn){
+            ConnectionHandler.updateConnection(wifiButton);
             if (docNameText.getText().equals("")) {
                 docNameText.setBackground(Color.lightGray);
             } else {
