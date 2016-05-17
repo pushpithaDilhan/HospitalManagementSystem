@@ -7,19 +7,28 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import org.apache.log4j.*;
 
 public class LabTechnician {
+    
+    private static final Logger logger = Logger.getLogger(LabTechnician.class.getName());
     
     static String[] selectedTimeSlots = null;
 
 
     public int getDateDifference(Date selectedDate) {
+        
+        if (logger.isDebugEnabled()){
+            logger.debug("Date selected : " + selectedDate);
+        }
+        
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date dateWithoutTime = null;                                        // To get the Date with time set to 00.00
 
         try {
             dateWithoutTime = sdf.parse(sdf.format(new Date()));            // This will return today's date. We can give this the date of the lab testing start, when we deploy.
         } catch (ParseException ex) {
+            logger.error("ParseException");
         }
 
         // null pointer if the date is not chosen.           
@@ -47,6 +56,7 @@ public class LabTechnician {
             state.setInt(1, cate);
             result = state.executeQuery();
         } catch (SQLException | NullPointerException ex) {
+            logger.error("SQL or NullPointer :" + ex);
         }
         return result;
     }

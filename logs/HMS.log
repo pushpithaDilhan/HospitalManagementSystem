@@ -136,3 +136,12 @@
 2016 May 17 17:48:18,301 [t=main] INFO  hms.AddDoctorGUI.<init>(:36) - AddDoctorGUI created.
 2016 May 17 18:00:17,383 [t=AWT-EventQueue-0] INFO  hms.HospitalManagementSystem.update(:35) - Inside HMS.update()
 >>>>>>> upstream/master
+2016 May 17 21:11:49,589 [t=main] TRACE hms.HospitalManagementSystem.main(:16) - First log inside HMS.main
+2016 May 17 21:11:53,470 [t=main] INFO  hms.ConnectionHandler.isConnected(:58) - Connection is broken
+2016 May 17 21:12:15,660 [t=main] ERROR hms.ConnectionHandler.<init>(:34) - SQL exception.
+2016 May 17 21:12:19,287 [t=main] INFO  hms.ConnectionHandler.isConnected(:58) - Connection is broken
+2016 May 17 22:30:23,504 [t=main] TRACE hms.HospitalManagementSystem.main(:16) - First log inside HMS.main
+2016 May 17 22:30:27,413 [t=main] INFO  hms.ConnectionHandler.isConnected(:58) - Connection is broken
+2016 May 17 22:30:48,691 [t=main] ERROR hms.ConnectionHandler.<init>(:34) - SQL exception.
+2016 May 17 22:30:49,001 [t=main] INFO  hms.LoginPageGUI.<init>(:25) - LoginPageGUI created
+2016 May 17 22:30:52,002 [t=main] INFO  hms.ConnectionHandler.isConnected(:58) - Connection is broken

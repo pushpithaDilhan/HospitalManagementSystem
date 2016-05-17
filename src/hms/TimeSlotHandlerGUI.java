@@ -1,14 +1,27 @@
 package hms;
 
 import java.awt.Color;
+import org.apache.log4j.*;
 
 public class TimeSlotHandlerGUI extends javax.swing.JPanel {
+    
+    private static final Logger logger = Logger.getLogger(TimeSlotHandlerGUI.class.getName());
     
     
     private static boolean checked;
     
     public TimeSlotHandlerGUI(String docName,String details,int day){
+        if (logger.isDebugEnabled()){
+            logger.debug("Doctor name : " + docName);
+            logger.debug("Chosen date : " + day);
+        }
+        
         initComponents();
+        
+        if (logger.isInfoEnabled()){
+            logger.info("TimeSlotHandlerGUI created");
+        }
+        
         ConnectionHandler.updateConnection(wifiButton);
         dateLabel.setText(new TimeSlotHandler().convertDay(day));
         docLabel.setText(docName.toUpperCase());
@@ -321,6 +334,7 @@ public class TimeSlotHandlerGUI extends javax.swing.JPanel {
                     Integer.parseInt(nic.substring(0,9));
                 } catch (java.lang.NumberFormatException ex) {
                     nicTextField.setForeground(Color.red);
+                    logger.info("invalid nic given. " + ex );
                 }
                 new TimeSlotHandler().updateTimeSlot(nic);
             }

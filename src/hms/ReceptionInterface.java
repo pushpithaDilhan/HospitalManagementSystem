@@ -1,13 +1,21 @@
 package hms;
 
+import org.apache.log4j.*;
+
 /**
  *
  * @author HP
  */
 public class ReceptionInterface extends javax.swing.JPanel {
+    
+    private static final Logger logger = Logger.getLogger(ReceptionInterface.class.getName());
 
     public ReceptionInterface() {
         initComponents();
+        
+        if (logger.isInfoEnabled()){
+            logger.info("ReceptionInterface created");
+        }
         ConnectionHandler.updateConnection(wifiButton);
         logOff.setVisible(false);
         cancel.setVisible(false);

@@ -5,15 +5,22 @@ import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JCheckBox;
+import org.apache.log4j.*;
 
 
 public class UpdateDoctorGUI extends javax.swing.JPanel {
+    
+    private static final Logger logger = Logger.getLogger(UpdateDoctorGUI.class.getName());
     
     private String Availability = "1";
     private int cate = 0;
     
     public UpdateDoctorGUI() {
         initComponents();
+        
+        if (logger.isInfoEnabled()){
+            logger.info("UpdateDoctorGUI created.");
+        }
         ConnectionHandler.updateConnection(wifiButton);
     }
 
@@ -376,7 +383,9 @@ public class UpdateDoctorGUI extends javax.swing.JPanel {
                     docList.add(result.getString(1));
                 }
             }
-            catch(SQLException | NullPointerException ex) {}
+            catch(SQLException | NullPointerException ex) {
+                logger.error(ex);
+            }
         }
     }//GEN-LAST:event_searchtBtnActionPerformed
 

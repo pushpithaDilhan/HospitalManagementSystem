@@ -2,21 +2,24 @@ package hms;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.*;
+
 
 /**
  *
  * @author Pushpitha
  */
 public class Security {
+    
+    private static final Logger logger = Logger.getLogger(Security.class.getName());
+    
     public String hash(String s){
         MessageDigest md = null;
         try {
             md = MessageDigest.getInstance("SHA-256");
             md.update(s.getBytes());
         } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(Security.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error("NoSuchAlgorithm exception");
         }
         
         

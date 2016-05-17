@@ -4,12 +4,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import org.apache.log4j.*;
 
 /**
  *
  * @author HP
  */
 public class LoginPageGUI extends javax.swing.JPanel {
+    
+    private static final Logger log = Logger.getLogger(LoginPageGUI.class.getName());
 
     private static String logger;
     private static String name = null;
@@ -17,6 +20,11 @@ public class LoginPageGUI extends javax.swing.JPanel {
 
     public LoginPageGUI() {
         initComponents();
+        
+        if (log.isInfoEnabled()){
+            log.info("LoginPageGUI created");
+        }
+        
         ConnectionHandler.updateConnection(wifiButton);
     }
 
@@ -288,6 +296,12 @@ public class LoginPageGUI extends javax.swing.JPanel {
             Security obj = new Security();
             String hashedUserName = obj.hash(userName);
             String hashedPassword = obj.hash(password);
+            
+            if (log.isDebugEnabled()){
+                log.debug("Hashed username : " + hashedUserName);
+                log.debug("Hashed password : " + hashedPassword);
+            }
+            
             ResultSet result = new LoginPage().validate(); //Search in database
             String employee = null;
             
@@ -309,7 +323,9 @@ public class LoginPageGUI extends javax.swing.JPanel {
                     logger = "Doctor";
                     HospitalManagementSystem.update(this, new DoctorInterface(name, id));
                 }
-            } catch (SQLException | NullPointerException ex) {}
+            } catch (SQLException | NullPointerException ex) {
+                log.error("SQL or NullPointer : "+ ex);
+            }
 
             if (employee == null) {
                 JOptionPane.showMessageDialog(null, "Invalid Username or Password");

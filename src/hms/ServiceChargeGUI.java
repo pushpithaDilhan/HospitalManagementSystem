@@ -7,18 +7,24 @@ package hms;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.apache.log4j.*;
 
 /**
  *
  * @author HP
  */
 public class ServiceChargeGUI extends javax.swing.JPanel {
+    
+    private static final Logger logger = Logger.getLogger(ServiceChargeGUI.class.getName());
 
     /**
      * Creates new form ServiceChargeGUI
      */
     public ServiceChargeGUI() {
         initComponents();
+        if (logger.isInfoEnabled()){
+            logger.info("ServiceChargeGUI created");
+        }
     }
 
     /**
@@ -262,7 +268,9 @@ public class ServiceChargeGUI extends javax.swing.JPanel {
                     chargeList.add(result.getString(2));
                 }
             }
-            catch(SQLException | NullPointerException ex) {}
+            catch(SQLException | NullPointerException ex) {
+                logger.error("SQL or NullPointer : " + ex);
+            }
 
         }
     }//GEN-LAST:event_searchtBtnActionPerformed

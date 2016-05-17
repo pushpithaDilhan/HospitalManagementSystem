@@ -8,12 +8,15 @@ package hms;
 import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.apache.log4j.*;
 
 /**
  *
  * @author HP
  */
 public class PastRecordsGUI extends javax.swing.JPanel {
+    
+    private static final Logger log = Logger.getLogger(PastRecordsGUI.class.getName());
 
     private boolean checked;
     private String logger;
@@ -21,6 +24,11 @@ public class PastRecordsGUI extends javax.swing.JPanel {
     
     public PastRecordsGUI() {
         initComponents();
+        
+        if (log.isInfoEnabled()){
+            log.info("PastRecordsGUI created.");
+        }
+        
         obj = new LoginPageGUI();
         logger = obj.getLogger();
         
@@ -361,6 +369,7 @@ public class PastRecordsGUI extends javax.swing.JPanel {
             } else {
                 PastRecords obj = new PastRecords();
                 if (obj.validateID(paNicText, paNic)) {
+                    
                     try {
                         ResultSet result = obj.getPastRecords(paNic);
                         while (result.next()) {
@@ -372,6 +381,7 @@ public class PastRecordsGUI extends javax.swing.JPanel {
 
                         }
                     } catch (SQLException | NullPointerException ex) {
+                        log.error("SQL or NullPointer : " + ex);
                     }
                 }
             }

@@ -1,14 +1,21 @@
 package hms;
 
 import java.awt.Color;
+import org.apache.log4j.*;
 
 public class PatientRegistrationGUI extends javax.swing.JPanel {
+    
+    private static final Logger logger = Logger.getLogger(PatientRegistrationGUI.class.getName());
     
     private String maState;
     private String gender;
     
     public PatientRegistrationGUI() {
         initComponents();
+        
+        if (logger.isInfoEnabled()){
+            logger.info("PatientRegistrationGUI created");
+        }
         ConnectionHandler.updateConnection(wifiButton);//check for internet connection
     }
 

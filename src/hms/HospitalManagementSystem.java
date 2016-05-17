@@ -22,11 +22,11 @@ public class HospitalManagementSystem {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(0,0,1366, 768);
         frame.add(new LoginPageGUI());                  // change this to get the ui.
-<<<<<<< HEAD
+
         //frame.add(new LabTechInterface());
-=======
+
         //frame.add(new ReceptionInterface());
->>>>>>> upstream/master
+
         frame.setTitle("Cooperative Hospital Galle");
         
         frame.setResizable(false);
