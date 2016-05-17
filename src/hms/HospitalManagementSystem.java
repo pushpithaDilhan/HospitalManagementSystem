@@ -2,11 +2,11 @@ package hms;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import org.apache.log4j.*;
+//import org.apache.log4j.*;
 
 public class HospitalManagementSystem {
     
-    private static final Logger logger = Logger.getLogger(HospitalManagementSystem.class.getName());
+    //private static final Logger logger = Logger.getLogger(HospitalManagementSystem.class.getName());
     
     private static JFrame frame;
     
@@ -19,6 +19,8 @@ public class HospitalManagementSystem {
         frame.setBounds(0,0,1366, 768);
         frame.add(new LoginPageGUI());
         //frame.add(new ReceptionInterface());
+        frame.setTitle("Cooperative Hospital Galle");
+        frame.setUndecorated(true);
         frame.setResizable(false);
         frame.setVisible(true);
     }
