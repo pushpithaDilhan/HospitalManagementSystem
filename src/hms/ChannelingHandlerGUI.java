@@ -4,8 +4,8 @@ package hms;
 import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 import javax.swing.JRadioButton;
-import org.apache.log4j.*;
 
 public class ChannelingHandlerGUI extends javax.swing.JPanel {
     
@@ -16,7 +16,7 @@ public class ChannelingHandlerGUI extends javax.swing.JPanel {
     
     public ChannelingHandlerGUI() {
         
-        logger.error("First Error");
+        logger.info("First Error");
         
         initComponents();
         ConnectionHandler.updateConnection(wifiButton);

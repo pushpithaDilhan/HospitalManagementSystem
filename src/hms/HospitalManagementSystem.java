@@ -1,12 +1,12 @@
 package hms;
 
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-//import org.apache.log4j.*;
 
 public class HospitalManagementSystem {
     
-    //private static final Logger logger = Logger.getLogger(HospitalManagementSystem.class.getName());
+    private static final Logger logger = Logger.getLogger(HospitalManagementSystem.class.getName());
     
     private static JFrame frame;
     
