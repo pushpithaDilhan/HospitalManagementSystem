@@ -8,12 +8,15 @@ package hms;
 import java.awt.Color;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
+import org.apache.log4j.*;
 
 /**
  *
  * @author HP
  */
 public class AddDoctorGUI extends javax.swing.JPanel {
+    
+    private static final Logger logger = Logger.getLogger(AddDoctorGUI.class.getName());
     
     private String code0 = "000000";
     private String code1 = "100000";
@@ -28,6 +31,11 @@ public class AddDoctorGUI extends javax.swing.JPanel {
     
     public AddDoctorGUI() {
         initComponents();
+        
+        if (logger.isInfoEnabled()){
+            logger.info("AddDoctorGUI created.");
+        }
+        
         ConnectionHandler.updateConnection(wifiButton);
     }
 
@@ -701,7 +709,7 @@ public class AddDoctorGUI extends javax.swing.JPanel {
 
     private void signOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutBtnActionPerformed
         if (evt.getSource() == signOutBtn) {
-
+            HospitalManagementSystem.update(this, new LoginPageGUI());
         }
     }//GEN-LAST:event_signOutBtnActionPerformed
 
