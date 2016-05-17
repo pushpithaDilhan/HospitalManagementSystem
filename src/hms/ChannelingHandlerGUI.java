@@ -4,8 +4,8 @@ package hms;
 import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Logger;
 import javax.swing.JRadioButton;
+import org.apache.log4j.Logger;
 
 public class ChannelingHandlerGUI extends javax.swing.JPanel {
     
@@ -14,11 +14,13 @@ public class ChannelingHandlerGUI extends javax.swing.JPanel {
     private int day = 0;
     private int cate = 0;
     
-    public ChannelingHandlerGUI() {
-        
-        logger.info("First Error");
-        
+    public ChannelingHandlerGUI() {        
         initComponents();
+        
+        if (logger.isInfoEnabled()){
+            logger.info("ChannelingHandlerGUI created.");
+        }
+        
         ConnectionHandler.updateConnection(wifiButton);
         SundayButton.setSelected(true);
     }
@@ -422,6 +424,11 @@ public class ChannelingHandlerGUI extends javax.swing.JPanel {
                 docNameText.setBackground(Color.lightGray);
             } else {
                 String details = new TimeSlotHandler().getTimeSlot(docNameText.getText().trim(),day);
+                
+                if (logger.isDebugEnabled()){
+                    logger.debug("Doctor name : " + details);
+                }
+                
                 HospitalManagementSystem.update(this, new TimeSlotHandlerGUI(docNameText.getText(),details,day));
             }
         }
@@ -459,7 +466,9 @@ public class ChannelingHandlerGUI extends javax.swing.JPanel {
                 }
                 }
             }
-            catch(SQLException | NullPointerException ex) {}
+            catch(SQLException | NullPointerException ex) {
+                logger.error("SQL or NullPointer in AdminInterface.viewDoctor()");
+            }
         }
     }//GEN-LAST:event_searchtBtnActionPerformed
 

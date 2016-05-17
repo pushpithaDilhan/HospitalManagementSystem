@@ -2,20 +2,27 @@ package hms;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.*;
+
 
 /**
  *
  * @author HP
  */
 public class DoctorAvailabilityGUI extends javax.swing.JPanel {
+    
+    private static final Logger logger = Logger.getLogger(DoctorAvailabilityGUI.class.getName());
 
     /**
      * Creates new form DoctorAvailabilityGUI
      */
     public DoctorAvailabilityGUI() {
         initComponents();
+        
+        if (logger.isInfoEnabled()){
+            logger.info("DoctorAvailabilityGUI created.");
+        }
+        
         ConnectionHandler.updateConnection(wifiButton);
     }
 
@@ -253,7 +260,7 @@ public class DoctorAvailabilityGUI extends javax.swing.JPanel {
                     list.add(result.getString(1));
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(DoctorAvailabilityGUI.class.getName()).log(Level.SEVERE, null, ex);
+                logger.error("SQL exception.");
             }
         }
     }//GEN-LAST:event_searchtBtnActionPerformed

@@ -1,15 +1,23 @@
 package hms;
 
 import java.awt.Color;
+import org.apache.log4j.*;
 
 public class AddEmployeeGUI extends javax.swing.JPanel {
+
+    private static final Logger logger = Logger.getLogger(AddEmployeeGUI.class.getName());
     private String maState;
     private String gender;
     private boolean check1;
     private boolean check2;
-    
+
     public AddEmployeeGUI() {
         initComponents();
+
+        if (logger.isInfoEnabled()) {
+            logger.info("AddEmployeeGUI created.");
+        }
+
         ConnectionHandler.updateConnection(wifiButton);
     }
 
@@ -502,13 +510,13 @@ public class AddEmployeeGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_otherTextAreaMouseMoved
 
     private void maStComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maStComboActionPerformed
-        maState=maStCombo.getSelectedItem().toString();
+        maState = maStCombo.getSelectedItem().toString();
     }//GEN-LAST:event_maStComboActionPerformed
 
     private void genderComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderComboActionPerformed
-        if(evt.getSource() == genderCombo){
-         gender = genderCombo.getSelectedItem().toString();
-            }
+        if (evt.getSource() == genderCombo) {
+            gender = genderCombo.getSelectedItem().toString();
+        }
     }//GEN-LAST:event_genderComboActionPerformed
 
     private void fnameTextMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fnameTextMouseMoved
@@ -554,7 +562,7 @@ public class AddEmployeeGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_resetBtnActionPerformed
 
     private void registertBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registertBtnActionPerformed
-        
+
         boolean isok = true;
         String password = "";
         if (evt.getSource() == registertBtn) {
@@ -562,7 +570,7 @@ public class AddEmployeeGUI extends javax.swing.JPanel {
             check2 = true;
             AddEmployee obj = new AddEmployee();
             ConnectionHandler.updateConnection(wifiButton);
-            
+
             if (pw1.getText().equals("") || pw2.getText().equals("")) {
                 pw1.setBackground(Color.LIGHT_GRAY);
                 pw2.setBackground(Color.LIGHT_GRAY);
@@ -608,23 +616,27 @@ public class AddEmployeeGUI extends javax.swing.JPanel {
                 isok = false;
             }
 
-            if (isok && password!="") {
-                System.out.print("Comes here!");
-                obj.register(fnameText.getText() + " " + snameText.getText(),nicText.getText(),bdayDateChooser.getDate(),mobileText.getText(),addressText.getText(),positionCB.getSelectedItem().toString(),otherTextArea.getText(),maState,regDateChooser.getDate(),gender);
+            if (isok && password != "") {
                 
+                if (logger.isInfoEnabled()){
+                    logger.info("Correct password given to register.");
+                }
+                
+                obj.register(fnameText.getText() + " " + snameText.getText(), nicText.getText(), bdayDateChooser.getDate(), mobileText.getText(), addressText.getText(), positionCB.getSelectedItem().toString(), otherTextArea.getText(), maState, regDateChooser.getDate(), gender);
+
             }
 
         }
     }//GEN-LAST:event_registertBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        if(evt.getSource()== backBtn){
-            HospitalManagementSystem.update(this ,new HRStaffInterface());
+        if (evt.getSource() == backBtn) {
+            HospitalManagementSystem.update(this, new HRStaffInterface());
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void positionCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_positionCBActionPerformed
-        
+
     }//GEN-LAST:event_positionCBActionPerformed
 
     private void pw1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pw1ActionPerformed
@@ -632,32 +644,32 @@ public class AddEmployeeGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_pw1ActionPerformed
 
     private void resetBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetBtnMouseEntered
-        if(evt.getSource()== resetBtn){
+        if (evt.getSource() == resetBtn) {
             resetBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/reset2.png")));
         }
     }//GEN-LAST:event_resetBtnMouseEntered
 
     private void resetBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetBtnMouseExited
-        if(evt.getSource()== resetBtn){
+        if (evt.getSource() == resetBtn) {
             resetBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/reset1.png")));
         }
     }//GEN-LAST:event_resetBtnMouseExited
 
     private void registertBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registertBtnMouseEntered
-        if(evt.getSource()== registertBtn){
+        if (evt.getSource() == registertBtn) {
             registertBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/reg2.png")));
         }
     }//GEN-LAST:event_registertBtnMouseEntered
 
     private void registertBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registertBtnMouseExited
-        if(evt.getSource()== registertBtn){
+        if (evt.getSource() == registertBtn) {
             registertBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms/images/reg1.png")));
         }
     }//GEN-LAST:event_registertBtnMouseExited
 
     private void pw1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pw1MouseEntered
-        if(evt.getSource() == pw1){
-            if(pw1.getBackground().equals(Color.LIGHT_GRAY) || pw1.getForeground().equals(Color.RED)){
+        if (evt.getSource() == pw1) {
+            if (pw1.getBackground().equals(Color.LIGHT_GRAY) || pw1.getForeground().equals(Color.RED)) {
                 pw1.setBackground(Color.WHITE);
                 pw1.setForeground(Color.BLACK);
                 pw1.setText("");
@@ -666,8 +678,8 @@ public class AddEmployeeGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_pw1MouseEntered
 
     private void pw2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pw2MouseEntered
-        if(evt.getSource() == pw2){
-            if(pw2.getBackground().equals(Color.LIGHT_GRAY) || pw2.getForeground().equals(Color.RED)){
+        if (evt.getSource() == pw2) {
+            if (pw2.getBackground().equals(Color.LIGHT_GRAY) || pw2.getForeground().equals(Color.RED)) {
                 pw2.setBackground(Color.WHITE);
                 pw2.setForeground(Color.BLACK);
                 pw2.setText("");
@@ -676,26 +688,28 @@ public class AddEmployeeGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_pw2MouseEntered
 
     private void nicTextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nicTextMouseEntered
-        if(evt.getSource() == nicText && check1){
-            if(nicText.getBackground().equals(Color.LIGHT_GRAY)){
+        if (evt.getSource() == nicText && check1) {
+            if (nicText.getBackground().equals(Color.LIGHT_GRAY)) {
                 nicText.setBackground(Color.WHITE);
             }
-            if(nicText.getForeground().equals(Color.RED)){
+            if (nicText.getForeground().equals(Color.RED)) {
                 nicText.setForeground(Color.BLACK);
                 nicText.setText("");
-            }check1 = false;
+            }
+            check1 = false;
         }
     }//GEN-LAST:event_nicTextMouseEntered
 
     private void mobileTextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mobileTextMouseEntered
-        if(evt.getSource() == mobileText && check2){
-            if(mobileText.getBackground().equals(Color.LIGHT_GRAY)){
+        if (evt.getSource() == mobileText && check2) {
+            if (mobileText.getBackground().equals(Color.LIGHT_GRAY)) {
                 mobileText.setBackground(Color.WHITE);
             }
-            if(mobileText.getForeground().equals(Color.RED)){
+            if (mobileText.getForeground().equals(Color.RED)) {
                 mobileText.setForeground(Color.BLACK);
                 mobileText.setText("");
-            }check2 = false;
+            }
+            check2 = false;
         }
     }//GEN-LAST:event_mobileTextMouseEntered
 
@@ -741,7 +755,5 @@ public class AddEmployeeGUI extends javax.swing.JPanel {
     private javax.swing.JLabel statusLabel;
     private javax.swing.JButton wifiButton;
     // End of variables declaration//GEN-END:variables
-    
-    
-   
+
 }

@@ -1,11 +1,14 @@
 package hms;
 
 import java.awt.Color;
+import org.apache.log4j.*;
 /**
  *
  * @author HP
  */
 public class AddRecordsGUI extends javax.swing.JPanel {
+    
+    private static final Logger logger = Logger.getLogger(AddRecordsGUI.class.getName());
     
     private static boolean select;
     private String docId;
@@ -13,6 +16,11 @@ public class AddRecordsGUI extends javax.swing.JPanel {
     
     public AddRecordsGUI(String docName , String docId) {
         initComponents();
+        
+        if (logger.isInfoEnabled()){
+            logger.info("AddRecordsGUI created.");
+        }
+        
         this.docId = docId;
         this.docName = docName;
         docNicText.setText(docId);
