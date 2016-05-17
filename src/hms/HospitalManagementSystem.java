@@ -1,8 +1,8 @@
 package hms;
 
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import org.apache.log4j.*;
 
 public class HospitalManagementSystem {
     
@@ -12,12 +12,16 @@ public class HospitalManagementSystem {
     
     public static void main(String[] args) {
         
+        if (logger.isTraceEnabled()){
+            logger.trace("First log inside HMS.main");
+        }
+        
         ConnectionHandler.conToDB();
         
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(0,0,1366, 768);
-        frame.add(new LoginPageGUI());
+        frame.add(new AddDoctorGUI());                  // change this to get the ui.
         //frame.add(new ReceptionInterface());
         frame.setTitle("Cooperative Hospital Galle");
         frame.setUndecorated(true);
@@ -26,6 +30,10 @@ public class HospitalManagementSystem {
     }
     
     public static void update(JPanel exist , JPanel add) {
+        
+        if (logger.isInfoEnabled()){
+            logger.info("Inside HMS.update()");
+        }
         frame.remove(exist);
         frame.add(add);
         frame.revalidate();

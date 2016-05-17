@@ -4,14 +4,15 @@ import java.awt.Color;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import org.apache.log4j.*;
 
 public class AddDoctor {
     
+    private static final Logger logger = Logger.getLogger(AddDoctor.class.getName());
+        
     public void addToDoctor(String id,
                             String name,
                             String code,
@@ -21,13 +22,24 @@ public class AddDoctor {
                             String add,
                             String password
         ){
+        
+        if (logger.isDebugEnabled()){
+            logger.debug("Doctor ID : " + id);
+            logger.debug("Doctor name : " + name);
+            logger.debug("Schedule code : " + code);
+            logger.debug("Category no : " + cate);
+            logger.debug("Doctor mobile : " + mobile);
+            logger.debug("Doctor date of birth : " + bday);
+            logger.debug("Doctor address : " + add);
+            // Password not logged for security reasons.
+        }
         try {
             Statement stat = ConnectionHandler.conToDB().createStatement();
             stat.executeUpdate("INSERT INTO doctor(nic,name,schedule_code,category,telephone,birthday,address) "
                                 +"VALUES ('"+id+"','"+name+"','"+code+"','"
                                 +cate+"','"+mobile+"','"+convert(bday)+"','"+add+"')");
         }catch (SQLException | NullPointerException ex) {
-            System.out.println("Error");
+            logger.error("SQL or NullPointer in AddDoctor.addToDoctor()");
         }
     }
     
@@ -37,6 +49,12 @@ public class AddDoctor {
                            String emp
         ){
         
+        if (logger.isDebugEnabled()){
+            logger.debug("Employee ID : " + id);
+            logger.debug("Name : " + name);
+            logger.debug("Type : " + emp);
+        }
+        
             Security obj = new Security();
             
         try {
@@ -44,7 +62,7 @@ public class AddDoctor {
              stat.executeUpdate("INSERT INTO login(employee,name,username,password) "
                                 +"VALUES ('"+emp+"','"+name+"','"+obj.hash(id)+"','"+obj.hash(password)+"')");
         } catch (SQLException ex) {
-            Logger.getLogger(AddDoctor.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error("SQL exception in AddDoctor.addToLogin()");
         }
     }
     
@@ -65,10 +83,12 @@ public class AddDoctor {
                                 +s2+"','"+s3+"','"+s4+"','"+s5+"','"+s6+"')");
             
         } catch (SQLException | NullPointerException ex) {
+            logger.error("SQL or NullPointer in AddDoctor.addToPastRecords()");
         }
     }
     
     public boolean validateID(JTextField nicTextField , String nic){
+        
             if (nic.length() != 10) {
                 nicTextField.setForeground(Color.red);
                 return false;
@@ -80,6 +100,9 @@ public class AddDoctor {
                     Integer.parseInt(nic.substring(0,9));
                 } catch (java.lang.NumberFormatException | StringIndexOutOfBoundsException ex) {
                     nicTextField.setForeground(Color.red);
+                    
+                    logger.info("Invalid NIC no. in validateID method. : " + nic);
+                    
                     return false;
                 }
                 return true;
@@ -95,6 +118,8 @@ public class AddDoctor {
                     Integer.parseInt(mobile);
                 } catch (java.lang.NumberFormatException | StringIndexOutOfBoundsException ex) {
                     nicTextField.setForeground(Color.red);
+                    
+                    logger.info("Invalid mobile number in validateMobile() : " + mobile);
                     return false;
                 }
                 return true;
@@ -152,6 +177,9 @@ public class AddDoctor {
     }
 
     public java.sql.Date convert(java.util.Date date) {
+        if (logger.isDebugEnabled()){
+            logger.debug("Date inside convert() : " + date);
+        }
         return new java.sql.Date(date.getTime());
     }
 }
