@@ -250,7 +250,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="146" max="-2" attributes="0"/>
+                          <Component id="charges" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace pref="78" max="32767" attributes="0"/>
                           <Component id="DocAttenBtn" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -266,12 +266,10 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jButton1" pref="40" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="addDocBtn" alignment="0" pref="40" max="32767" attributes="0"/>
-                                  <Component id="addEmployeeBtn" alignment="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="DocAttenBtn" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="charges" pref="40" max="32767" attributes="0"/>
+                              <Component id="addDocBtn" alignment="0" pref="40" max="32767" attributes="0"/>
+                              <Component id="addEmployeeBtn" alignment="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="DocAttenBtn" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
@@ -312,12 +310,12 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DocAttenBtnActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="charges">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Add Charges"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chargesActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

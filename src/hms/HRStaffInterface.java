@@ -10,20 +10,26 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 
-/**
- *
- * @author HP
- */
+import org.apache.log4j.*;
+
+ 
 public class HRStaffInterface extends javax.swing.JPanel {
+    
+    private static final Logger logger = Logger.getLogger(HRStaffInterface.class.getName());
 
     /**
      * Creates new form HRStaffInterface
      */
     public HRStaffInterface() {
         initComponents();
+        
+        if (logger.isInfoEnabled()){
+            logger.info("HRStaffInterface created.");
+        }
+        
         ConnectionHandler.updateConnection(wifiButton);
         logOff.setVisible(false);
         cancel.setVisible(false);
@@ -51,7 +57,7 @@ public class HRStaffInterface extends javax.swing.JPanel {
         addDocBtn = new javax.swing.JButton();
         addEmployeeBtn = new javax.swing.JButton();
         DocAttenBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        charges = new javax.swing.JButton();
         signOutBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         wifiButton = new javax.swing.JButton();
@@ -181,10 +187,10 @@ public class HRStaffInterface extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Add Charges");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        charges.setText("Add Charges");
+        charges.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                chargesActionPerformed(evt);
             }
         });
 
@@ -194,7 +200,7 @@ public class HRStaffInterface extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(charges, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(DocAttenBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
@@ -208,11 +214,10 @@ public class HRStaffInterface extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(addDocBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                        .addComponent(addEmployeeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(DocAttenBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(charges, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(addDocBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(addEmployeeBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(DocAttenBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29))
         );
 
@@ -399,10 +404,10 @@ public class HRStaffInterface extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_DocAttenBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void chargesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chargesActionPerformed
+            HospitalManagementSystem.update(this, new AddServiceChargesGUI());
+            ConnectionHandler.updateConnection(charges);
+    }//GEN-LAST:event_chargesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -410,7 +415,7 @@ public class HRStaffInterface extends javax.swing.JPanel {
     private javax.swing.JButton addDocBtn;
     private javax.swing.JButton addEmployeeBtn;
     private javax.swing.JButton cancel;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton charges;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

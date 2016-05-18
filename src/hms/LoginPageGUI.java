@@ -324,6 +324,9 @@ public class LoginPageGUI extends javax.swing.JPanel {
             } else if (employee.equals("HR")) {
                 logger = "HR";
                 HospitalManagementSystem.update(this, new HRStaffInterface());
+            }else if (employee.equals("Lab Technician")) {
+                logger = "Lab Technician";
+                HospitalManagementSystem.update(this, new LabTechInterface());
             }
         }
     }//GEN-LAST:event_loginActionPerformed

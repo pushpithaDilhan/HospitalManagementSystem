@@ -709,7 +709,7 @@ public class AddDoctorGUI extends javax.swing.JPanel {
 
     private void signOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutBtnActionPerformed
         if (evt.getSource() == signOutBtn) {
-            HospitalManagementSystem.update(this, new LoginPageGUI());
+            HospitalManagementSystem.update(this, new LoginPageGUI());          // added
         }
     }//GEN-LAST:event_signOutBtnActionPerformed
 
