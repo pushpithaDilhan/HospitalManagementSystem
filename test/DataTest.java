@@ -33,13 +33,14 @@ public class DataTest {
         // Resultset takes the data as a iterable array
         ResultSet result = state.executeQuery();
         String ths = result.getString(1);
-        System.out.println(ths.equals("942156385V"));
+        System.out.println(1==1);
         assertEquals("942156385V","942156385V");
         
     }
     
     @BeforeClass
     public static void setUpClass() {
+        System.out.println("Before class");
     }
     
     @AfterClass
