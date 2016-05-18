@@ -21,10 +21,10 @@ public class HospitalManagementSystem {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(0,0,1366, 768);
-        frame.add(new AddDoctorGUI());                  // change this to get the ui.
+        frame.add(new LoginPageGUI());                  // change this to get the ui.
         //frame.add(new ReceptionInterface());
         frame.setTitle("Cooperative Hospital Galle");
-        frame.setUndecorated(true);
+        
         frame.setResizable(false);
         frame.setVisible(true);
     }
